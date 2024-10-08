@@ -8,14 +8,20 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{judul_fix}}</ion-card-title>
+      <ion-card-subtitle>{{subtitle_fix}}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{deskripsi_fix}}
+    </ion-card-content>
+  </ion-card>
 
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-input class="large-input" labelPlacement="floating" label="Ubah Subtitle" [(ngModel)]="subtitle"></ion-input>
+<ion-input class="large-input" labelPlacement="floating" label="Ubah Judul" [(ngModel)]="judul"></ion-input>
+<ion-input class="large-input" labelPlacement="floating" label="Ubah Deskripsi" [(ngModel)]="deskripsi"></ion-input>
+
+  <ion-button class="large-input" expand="block" (click)="ubahjudul()">Submit</ion-button>
 </ion-content>
