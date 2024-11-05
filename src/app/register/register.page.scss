@@ -1,0 +1,35 @@
+ion-header {
+    background: #00050c; // Ganti sesuai kebutuhan
+  }
+  
+  input {
+    background-color: #f8f9fa; // Warna latar belakang input
+    border: 1px solid #ccc; // Warna border input
+    color: #333; // Warna teks input
+    padding: 15px; // Padding di dalam input
+    border-radius: 15px; // Radius border untuk input
+    width: 100%; // Lebar penuh
+  }
+  
+  .form-label {
+    font-size: 1rem; // Ukuran font untuk label
+    font-weight: 500; // Ketebalan font
+    color: whitesmoke; // Warna label
+    margin-bottom: 5px; // Margin bawah label
+  }
+  
+  .submit-button {
+    background-color: #0d49b2; // Warna latar belakang tombol
+    color: whitesmoke; // Warna teks tombol
+    font-weight: normal; // Ketebalan font tombol
+    padding: 10px; // Padding tombol
+    border-radius: 10px; // Radius border tombol
+    width: 100%; // Lebar penuh tombol
+    cursor: pointer; // Pointer saat hover
+    margin-top: 50px;
+  }
+  
+  .submit-button:hover {
+    background-color: #3171e0; // Warna saat hover
+  }
+  

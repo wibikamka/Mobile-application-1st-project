@@ -1,0 +1,53 @@
+ion-content {
+    --background: black;
+  }
+  
+  .login-form {
+    max-width: 384px; 
+    margin: auto; 
+  }
+  
+  .form-group {
+    margin-top: 20px;
+    margin-bottom: 20px; 
+  }
+  
+  .form-label {
+    display: block; 
+    margin-bottom: 8px; 
+    font-size: 20px; 
+    font-weight: 500; 
+    color: #ffffff; 
+  }
+  
+  .form-input {
+    background-color: #f9fafb; 
+    border: 1px solid #d1d5db; 
+    color: black; 
+    font-size: 22px; 
+    font-weight:bold;
+    border-radius: 8px; 
+    width: 100%; 
+    padding: 15px; 
+    box-shadow: none; 
+  }
+  
+  .login-button {
+    background-color: #124290; 
+    color: whitesmoke; 
+    font-size: 22px; 
+    font-weight: 510; 
+    border-radius: 10px; 
+    margin-top: 20px; 
+    padding: 20px 20px; 
+    width: 100%; 
+    transition: background-color 0.3s; 
+  }
+  
+  .login-button:hover {
+    background-color: #2563eb; 
+  }
+
+
+
+  

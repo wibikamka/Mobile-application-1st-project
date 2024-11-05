@@ -8,20 +8,31 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>{{judul_fix}}</ion-card-title>
-      <ion-card-subtitle>{{subtitle_fix}}</ion-card-subtitle>
-    </ion-card-header>
-  
-    <ion-card-content>
-      {{deskripsi_fix}}
-    </ion-card-content>
-  </ion-card>
-
-<ion-input class="large-input" labelPlacement="floating" label="Ubah Subtitle" [(ngModel)]="subtitle"></ion-input>
-<ion-input class="large-input" labelPlacement="floating" label="Ubah Judul" [(ngModel)]="judul"></ion-input>
-<ion-input class="large-input" labelPlacement="floating" label="Ubah Deskripsi" [(ngModel)]="deskripsi"></ion-input>
-
-  <ion-button class="large-input" expand="block" (click)="ubahjudul()">Submit</ion-button>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Main Page</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="content-container">
+    <a href="#">
+      <h5 class="content-title">Noteworthy technology acquisitions 2021</h5>
+    </a>
+    <p class="content-description">
+      Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+    </p>
+    <div class="button-container">
+      <a routerLink="/login" class="btn-login">
+        login
+        <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+        </svg>
+      </a>
+      <a routerLink="/register" class="btn-register">
+        register
+        <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+        </svg>
+      </a>
+    </div>
+  </div>
 </ion-content>
