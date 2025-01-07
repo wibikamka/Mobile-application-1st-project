@@ -1,25 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
+<ion-header collapse="condense">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Login</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="container">
+    <!-- Logo -->
+    <div class="logo-text">
+      LOCALLY
+    </div>
 
-  <form class="login-form" #loginForm="ngForm" (ngSubmit)="submitlogin()">
-    <div class="form-group">
-      <label for="email" class="form-label">Your email</label>
-      <input type="email" id="email" class="form-input" placeholder="name@flowbite.com" name="email" [(ngModel)]="data.email" required>
-    </div>
-    <div class="form-group">
-      <label for="password" class="form-label">Your password</label>
-      <input type="password" id="password" class="form-input" name="password" [(ngModel)]="data.password" required>
-    </div>
-    <button type="submit" class="login-button" [disabled]="!loginForm.valid">Login</button>
-  </form>
+    <!-- Formulir login -->
+    <form class="login-form" #loginForm="ngForm" (ngSubmit)="submitlogin()">
+      <div class="form-group">
+        <!-- Email Input -->
+        <div class="form-input-group">
+          <input type="email" id="email" class="form-input" placeholder="Email/No Handphone" name="email" [(ngModel)]="data.email" required>
+        </div>
+        
+        <!-- Password Input -->
+        <div class="form-input-group">
+          <input type="password" id="password" class="form-input" placeholder="Password" name="password" [(ngModel)]="data.password" required>
+        </div>
+      </div>
+
+      <!-- Tombol Login -->
+      <button type="submit" class="login-button" [disabled]="!loginForm.valid">LOGIN</button>
+
+      <!-- Tombol Registrasi -->
+      <button type="button" class="register-button" (click)="navigateToRegister()">REGISTRASI</button>
+    </form>
+  </div>
 </ion-content>

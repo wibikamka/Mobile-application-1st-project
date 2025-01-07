@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Explorer</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Explorer Grid -->
+  <div class="explorer-grid">
+    <div class="explorer-item" *ngFor="let post of posts">
+      <img [src]="post.image" alt="Outfit Image" />
+    </div>
+  </div>
+</ion-content>
+
+<div class="footer">
+  <ion-icon class="footer-icon" name="home-outline"></ion-icon>
+  <ion-icon class="footer-icon" name="heart-outline"></ion-icon>
+  <ion-icon class="footer-icon" name="heart-outline"></ion-icon>
+  <ion-icon class="footer-icon" name="cart-outline"></ion-icon>
+  <ion-icon class="footer-icon" name="person-outline"></ion-icon>
+</div>

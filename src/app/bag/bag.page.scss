@@ -1,0 +1,75 @@
+/* Cart Item Styles */
+.cart-item {
+    border-bottom: 1px solid #ddd;
+    padding: 16px;
+  }
+  
+  .item-info h3 {
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  .item-info p {
+    font-size: 14px;
+    color: #555;
+    margin: 4px 0;
+  }
+  
+  .price {
+    color: #C62E32;
+    font-weight: bold;
+  }
+  
+  .item-actions {
+    display: flex;
+    gap: 8px;
+    margin: 8px 0;
+  }
+  
+  .item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .item-quantity ion-icon {
+    font-size: 20px;
+    color: #C62E32;
+  }
+  
+  .chat-button {
+    margin-top: 8px;
+    font-size: 14px;
+    --color: #555;
+  }
+  
+  /* Summary Styles */
+  .summary {
+    margin: 16px;
+    border-top: 1px solid #ddd;
+    padding-top: 16px;
+    font-size: 14px;
+  }
+  
+  .summary p {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+  }
+  
+  .summary p:last-child {
+    font-size: 16px;
+    font-weight: bold;
+    color: #C62E32;
+  }
+  
+  /* Action Buttons */
+  .action-buttons {
+    margin: 16px;
+  }
+  
+  .action-buttons ion-button {
+    border-radius: 50px;
+    margin-bottom: 8px;
+  }
+  

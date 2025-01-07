@@ -1,0 +1,97 @@
+/* Custom Slider */
+.custom-slider {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+  
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .dot.active {
+    background-color: #C62E32;
+  }
+  
+  /* Add to Bag Button */
+  .add-to-bag-container {
+    margin: 16px;
+    text-align: center;
+  }
+  
+  .add-to-bag-button {
+    border-radius: 50px;
+    font-weight: bold;
+  }
+  
+  /* Tab Menu */
+  .tab-menu {
+    margin-top: 16px;
+    --indicator-color: #C62E32;
+    --color-checked: #C62E32;
+  }
+  
+  /* Product Info */
+  .product-info {
+    margin: 16px;
+    font-size: 14px;
+    color: #333;
+  }
+
+  /* Footer Navigation */
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: white;
+  padding: 10px 0;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+}
+
+.footer-menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.footer-icon {
+  font-size: 35px;
+  color: #c52b30;
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-icon:hover {
+  color: #900000; /* Warna saat ikon di-hover */
+}

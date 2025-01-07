@@ -1,33 +1,82 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <!-- <ion-toolbar>
     <ion-title>Register</ion-title>
-  </ion-toolbar>
+  </ion-toolbar> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Register</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
+
+  <div class="logo-container">
+    <h1 class="logo-text">LOCALLY</h1>
+  </div>
 
   <form class="max-w-sm mx-auto" #registerForm="ngForm" (ngSubmit)="submitregister()">
-    <div class="mb-5">
-      <label for="name" class="form-label">Your Name</label>
-      <input type="text" id="name" class="input-field" placeholder="enter your name" name="name" [(ngModel)]="data.name" required />
+    <div class="mb-3">
+      <input
+        type="text"
+        id="name"
+        class="input-field"
+        placeholder="Enter your name"
+        name="name"
+        [(ngModel)]="data.name"
+        required
+      />
     </div>
-    <div class="mb-5">
-      <label for="email" class="form-label">Your Email</label>
-      <input type="email" id="email" class="input-field" placeholder="name@example.com" name="email" [(ngModel)]="data.email" required />
+    <div class="mb-3">
+      <input
+        type="text"
+        id="phone"
+        class="input-field"
+        placeholder="Nomor telepon"
+        name="phone"
+        [(ngModel)]="data.phone"
+        required
+      />
     </div>
-    <div class="mb-5">
-      <label for="password" class="form-label">pasword</label>
-      <input type="password" id="password" class="input-field" placeholder="password" name="password" [(ngModel)]="data.password" required />
+    <div class="mb-3">
+      <input
+        type="email"
+        id="email"
+        class="input-field"
+        placeholder="name@example.com"
+        name="email"
+        [(ngModel)]="data.email"
+        required
+      />
     </div>
-    <div class="mb-5">
-      <label for="password_confirmation" class="form-label">password confirmation</label>
-      <input type="password" id="password_confirmation" class="input-field" placeholder="repeat password" name="password_confirmation" [(ngModel)]="data.password_confirmation" required />
+    <div class="mb-3">
+      <input
+        type="password"
+        id="password"
+        class="input-field"
+        placeholder="Password"
+        name="password"
+        [(ngModel)]="data.password"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        type="password"
+        id="password_confirmation"
+        class="input-field"
+        placeholder="Repeat password"
+        name="password_confirmation"
+        [(ngModel)]="data.password_confirmation"
+        required
+      />
     </div>
     <button type="submit" class="submit-button" [disabled]="!registerForm.valid">Register</button>
   </form>
+  <div class="login-link">
+    <p>Sudah memiliki akun? <span (click)="goToLogin()" class="login-text">Login</span></p>
+  </div>
 </ion-content>

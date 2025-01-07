@@ -1,10 +1,67 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>home</ion-title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+  <ion-toolbar  class="custom-header">
+    <ion-title class="header-title">LOCALLY</ion-title>
+    <ion-buttons slot="start">
+      <ion-icon class="header-icon" name="cart-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-icon class="header-icon" name="notifications-outline"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
- <img [src]="imageSrc" />
- <button (click)="takePicture()">Take Picture</button>
+  <!-- Search Bar -->
+  <div class="search-container">
+    <ion-icon name="search-outline" class="search-icon"></ion-icon>
+    <input type="text" placeholder="Search" class="search-input" />
+  </div>
+
+  <!-- Category Section -->
+  <div class="categories">
+    <div class="category">
+      <img class="category-icon" src="https://via.placeholder.com/60" />
+      <div class="category-label">Latest</div>
+    </div>
+    <div class="category">
+      <img class="category-icon" src="https://via.placeholder.com/60" />
+      <div class="category-label">Kids</div>
+    </div>
+    <div class="category">
+      <img class="category-icon" src="https://via.placeholder.com/60" />
+      <div class="category-label">Ladies</div>
+    </div>
+    <div class="category">
+      <img class="category-icon" src="https://via.placeholder.com/60" />
+      <div class="category-label">Men</div>
+    </div>
+    <div class="category">
+      <img class="category-icon" src="https://via.placeholder.com/60" />
+      <div class="category-label">Brands</div>
+    </div>
+  </div>
+
+  <!-- Banner Section -->
+  <div class="banner-container">
+    <img src="https://via.placeholder.com/328x160" class="banner" />
+    <img src="https://via.placeholder.com/328x160" class="banner" />
+    <img src="https://via.placeholder.com/328x160" class="banner" />
+    <img src="https://via.placeholder.com/328x160" class="banner" />
+    <img src="https://via.placeholder.com/328x160" class="banner" />
+    <img src="https://via.placeholder.com/328x160" class="banner" />
+    <img src="https://via.placeholder.com/328x160" class="banner" />
+    <img src="https://via.placeholder.com/328x160" class="banner" />
+  </div>
+
+  <!-- Footer Navigation -->
+  <div class="footer">
+    <ion-icon class="footer-icon" name="home-outline" routerLink="/home"></ion-icon>
+    <ion-icon class="footer-icon" name="heart-outline" routerLink="/product"></ion-icon>
+    <ion-icon class="footer-icon" name="heart-outline" ></ion-icon>
+    <ion-icon class="footer-icon" name="cart-outline"></ion-icon>
+    <ion-icon class="footer-icon" name="person-outline"></ion-icon>
+  </div>
 </ion-content>

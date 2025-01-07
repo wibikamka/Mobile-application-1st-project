@@ -1,0 +1,28 @@
+.tabs-menu {
+  margin: 16px 0;
+  --background: #f9f9f9;
+  --indicator-color: #C62E32;
+  --color-checked: #C62E32;
+}
+
+ion-item {
+  --background: #fff;
+  --border-color: #ddd;
+  margin-bottom: 8px;
+}
+
+ion-thumbnail {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+ion-label h3 {
+  font-weight: bold;
+  margin: 0;
+}
+
+ion-label p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}

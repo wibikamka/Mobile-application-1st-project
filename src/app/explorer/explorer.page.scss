@@ -1,0 +1,30 @@
+/* Explorer Grid */
+.explorer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+    gap: 4px;
+    padding: 8px;
+  }
+  
+  .explorer-item {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .explorer-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  /* Footer Navigation */
+  ion-footer ion-toolbar {
+    border-top: 1px solid #ddd;
+    --background: #fff;
+  }
+  
+  ion-footer ion-toolbar ion-button {
+    --color: #C62E32;
+  }
+  

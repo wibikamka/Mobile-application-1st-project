@@ -36,4 +36,8 @@ export class LoginPage implements OnInit {
     console.log(this.data); // Ubah dari this.form ke this.data
     this.doLogin(); // Panggil fungsi login
   }
+
+  navigateToRegister() {
+    this.router.navigate(['/register']);
+  }
 }

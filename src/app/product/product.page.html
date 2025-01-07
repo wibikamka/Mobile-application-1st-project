@@ -1,0 +1,98 @@
+<ion-header>
+  <!-- Sticky Container for Title and Tabs -->
+  <div class="sticky-header-container">
+    <!-- Header Section -->
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button>
+          <ion-icon slot="icon-only" name="arrow-back" color="danger"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="title">Blouse</ion-title>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu" color="danger"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+
+    <!-- Tab Menu -->
+    <ion-segment value="featured" class="tab-menu">
+      <ion-segment-button value="featured">
+        <ion-label>Featured</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="star-seller">
+        <ion-label>Star Seller</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="price">
+        <ion-label>Price</ion-label>
+        <ion-icon name="caret-down-outline"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+</ion-header>
+
+<ion-content>
+  <!-- Product List Grid -->
+  <ion-grid>
+    <ion-row>
+      <!-- Product Card 1 -->
+      <ion-col size="6">
+        <ion-card class="product-card">
+          <img src="https://via.placeholder.com/155x205" alt="Blouse 1"/>
+          <ion-card-content>
+            <p class="product-title">BLW L/S OFF SHLDR CROP</p>
+            <p class="product-brand">Brand: Heritage</p>
+            <p class="product-price">Rp. 149,500</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Product Card 2 -->
+      <ion-col size="6">
+        <ion-card class="product-card">
+          <img src="https://via.placeholder.com/155x205" alt="Blouse 2"/>
+          <ion-card-content>
+            <p class="product-title">BLW SS HR31 T BLNG RMB</p>
+            <p class="product-brand">Brand: Heritage</p>
+            <p class="product-price">Rp. 139,500</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Product Card 3 -->
+      <ion-col size="6">
+        <ion-card class="product-card">
+          <img src="https://via.placeholder.com/155x205" alt="Blouse 3"/>
+          <ion-card-content>
+            <p class="product-title">BLW 3/4 BNB SLR TUNIK</p>
+            <p class="product-brand">Brand: Heritage</p>
+            <p class="product-price">Rp. 149,500</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Product Card 4 -->
+      <ion-col size="6">
+        <ion-card class="product-card">
+          <img src="https://via.placeholder.com/155x205" alt="Blouse 4"/>
+          <ion-card-content>
+            <p class="product-title">BLW 3/4 L/U 010 LINEN</p>
+            <p class="product-brand">Brand: Julia Owers</p>
+            <p class="product-price">Rp. 169,500</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer class="footer">
+  <div class="footer-menu">
+    <ion-icon class="footer-icon" name="home-outline"></ion-icon>
+    <ion-icon class="footer-icon" name="heart-outline"></ion-icon>
+    <ion-icon class="footer-icon" name="heart-outline"></ion-icon>
+    <ion-icon class="footer-icon" name="cart-outline"></ion-icon>
+    <ion-icon class="footer-icon" name="person-outline"></ion-icon>
+  </div>
+</ion-footer>

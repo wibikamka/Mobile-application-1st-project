@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pesanan Saya</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Tabs Menu -->
+  <ion-segment [(ngModel)]="currentTab" scrollable class="tabs-menu">
+    <ion-segment-button value="menunggu-konfirmasi">
+      <ion-label>Menunggu Konfirmasi</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="pesanan-diproses">
+      <ion-label>Pesanan Diproses</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="sedang-dikirim">
+      <ion-label>Sedang Dikirim</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Content for Each Tab -->
+  <div [ngSwitch]="currentTab">
+    <!-- Menunggu Konfirmasi -->
+    <ng-container *ngSwitchCase="'menunggu-konfirmasi'">
+      <ion-list>
+        <ion-item *ngFor="let pesanan of menungguKonfirmasi">
+          <ion-thumbnail slot="start">
+            <img [src]="pesanan.image">
+          </ion-thumbnail>
+          <ion-label>
+            <h3>Invoice: {{ pesanan.invoice }}</h3>
+            <p>{{ pesanan.date }}</p>
+            <p>{{ pesanan.status }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ng-container>
+
+    <!-- Pesanan Diproses -->
+    <ng-container *ngSwitchCase="'pesanan-diproses'">
+      <ion-list>
+        <ion-item *ngFor="let pesanan of pesananDiproses">
+          <ion-thumbnail slot="start">
+            <img [src]="pesanan.image">
+          </ion-thumbnail>
+          <ion-label>
+            <h3>Invoice: {{ pesanan.invoice }}</h3>
+            <p>{{ pesanan.date }}</p>
+            <p>{{ pesanan.status }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ng-container>
+
+    <!-- Sedang Dikirim -->
+    <ng-container *ngSwitchCase="'sedang-dikirim'">
+      <ion-list>
+        <ion-item *ngFor="let pesanan of sedangDikirim">
+          <ion-thumbnail slot="start">
+            <img [src]="pesanan.image">
+          </ion-thumbnail>
+          <ion-label>
+            <h3>Invoice: {{ pesanan.invoice }}</h3>
+            <p>{{ pesanan.date }}</p>
+            <p>{{ pesanan.status }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ng-container>
+  </div>
+</ion-content>
