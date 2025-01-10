@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })  
 export class ApiService {
-  baseUrl = 'http://localhost:8000/api/'
+  baseUrl = 'https://d3c8-139-195-168-158.ngrok-free.app/api/'
   token : any=''
   constructor(private http: HttpClient) {
     
@@ -16,7 +16,12 @@ export class ApiService {
     return this.http.post(
        this.baseUrl + url, 
        data,
-       { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + this.token }) }
+       { 
+        headers: new HttpHeaders({
+          'Authorization': 'Bearer ' + this.token,
+          'Accept': 'application/json'
+        }) 
+      }
     );
  }
  
@@ -24,7 +29,13 @@ export class ApiService {
    get(url:any){
     this.token = localStorage.getItem('userToken')||''
     return this.http.get(this.baseUrl+url,
-      {headers: new HttpHeaders({'Authorization': 'Bearer ' + this.token})})
+      { 
+        headers: new HttpHeaders({
+          'Authorization': 'Bearer ' + this.token,
+          'Accept': 'application/json'
+        }) 
+      }
+    )
     
    }
 }

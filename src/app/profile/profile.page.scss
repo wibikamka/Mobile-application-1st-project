@@ -1,0 +1,67 @@
+/* Header Profil */
+.profile-header {
+    display: flex;
+    align-items: center;
+    background-color: #c52b30;
+    color: #fff;
+    padding: 16px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  
+  .profile-picture img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    margin-right: 16px;
+  }
+  
+  .profile-info h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .profile-info p {
+    margin: 4px 0;
+    font-size: 14px;
+  }
+  
+  /* Statistik Profil */
+  .profile-stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 16px 0;
+    text-align: center;
+  }
+  
+  .stat-item p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .stat-item strong {
+    font-size: 18px;
+    color: #c52b30;
+  }
+  
+  /* Menu Profil */
+  ion-list {
+    margin-top: 16px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  ion-item {
+    --background: #fff;
+    --color: #333;
+    --border-color: #ddd;
+  }
+  
+  ion-icon {
+    color: #c52b30;
+    font-size: 20px;
+  }
+  

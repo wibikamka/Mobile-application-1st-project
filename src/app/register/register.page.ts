@@ -10,8 +10,9 @@ import { Router } from '@angular/router';
 export class RegisterPage implements OnInit {
   // Objek data untuk pendaftaran
   data: any = {
-    name: '',
+    username: '',
     email: '',
+    gender:'',
     password: '',
     password_confirmation: ''
   };

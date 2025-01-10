@@ -1,33 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { Camera, CameraResultType } from '@capacitor/camera';
+import { ProductService } from './product.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  selector: 'app-product-list',
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.css']
 })
-export class HomePage implements OnInit {
-  imageSrc:any = ""
-  constructor() { }
+export class ProductListComponent implements OnInit {
+  products: any[] = [];
+  
+  constructor(private productService: ProductService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.loadProducts(1); // Load produk di page 1 misalnya
   }
 
-  async takePicture(){
-    const image = await Camera.getPhoto({
-      quality: 90,
-      allowEditing: false,
-      resultType: CameraResultType.DataUrl
-    });
-  
-    // image.webPath will contain a path that can be set as an image src.
-    // You can access the original file using image.path, which can be
-    // passed to the Filesystem API to read the raw data of the image,
-    // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
-    var imageUrl = image.dataUrl;
-  
-    // Can be set to the src of an image now
-    this.imageSrc = imageUrl;
-  };
-
+  loadProducts(page: number) {
+    this.productService.getProducts(page).subscribe(
+      (response) => {
+        console.log('Data produk:', response); // Log data yang didapat dari API
+        this.products = response.data; // Asumsikan API mengembalikan data dalam response
+      },
+      (error) => {
+        console.error('Error mengambil produk:', error);
+      }
+    );
+  }
 }

@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Profil Saya</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Bagian Header Profil -->
+  <div class="profile-header">
+    <div class="profile-picture">
+      <img src="assets/img/profile-placeholder.png" alt="Foto Profil" />
+    </div>
+    <div class="profile-info">
+      <h2>Nama Pengguna</h2>
+      <p>ID: 12345678</p>
+      <ion-button size="small" color="light">Edit Profil</ion-button>
+    </div>
+  </div>
+
+  <!-- Statistik Profil -->
+  <div class="profile-stats">
+    <div class="stat-item">
+      <p><strong>10</strong></p>
+      <p>Pesanan</p>
+    </div>
+    <div class="stat-item">
+      <p><strong>5</strong></p>
+      <p>Wishlist</p>
+    </div>
+    <div class="stat-item">
+      <p><strong>20</strong></p>
+      <p>Voucher</p>
+    </div>
+  </div>
+
+  <!-- Menu Profil -->
+  <ion-list>
+    <ion-item>
+      <ion-icon slot="start" name="cart-outline"></ion-icon>
+      <ion-label>Pesanan Saya</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="heart-outline"></ion-icon>
+      <ion-label>Wishlist</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="gift-outline"></ion-icon>
+      <ion-label>Voucher</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="settings-outline"></ion-icon>
+      <ion-label>Pengaturan</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="log-out-outline"></ion-icon>
+      <ion-label>Keluar</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div class="footer">
+    <ion-icon class="footer-icon" name="home-outline" routerLink="/home"></ion-icon>
+    <ion-icon class="footer-icon" name="search-outline" routerLink="/explorer"></ion-icon>
+    <ion-icon class="footer-icon" name="add-circle-outline" ></ion-icon>
+    <ion-icon class="footer-icon" name="heart-outline" routerLink="/product"></ion-icon>
+    <ion-icon class="footer-icon" name="person-outline" routerLink="/profile"></ion-icon>
+  </div>
+</ion-content>

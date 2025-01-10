@@ -46,6 +46,10 @@ const routes: Routes = [
   {
     path: 'explorer',
     loadChildren: () => import('./explorer/explorer.module').then( m => m.ExplorerPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   }
 ];
 

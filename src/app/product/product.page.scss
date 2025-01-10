@@ -1,11 +1,11 @@
 /* Sticky Container for Header and Tabs */
-.sticky-header-container {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background-color: #fff; /* Ensure background is white */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for separation */
-  }
+// .sticky-header-container {
+//     position: sticky;
+//     top: 0;
+//     z-index: 10;
+//     background-color: #fff; /* Ensure background is white */
+//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for separation */
+//   }
   
   /* Toolbar Styling */
   ion-toolbar {
@@ -13,12 +13,6 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  /* Title Styling */
-  .title {
-    color: #C62E32;
-    font-size: 18px;
-    font-weight: bold;
-  }
   
   /* Tab Menu Styling */
   .tab-menu {
@@ -94,4 +88,28 @@
 
 .footer-icon:hover {
   color: #900000; /* Warna saat ikon di-hover */
+}
+ /* Search Bar */
+ .search-container {
+  display: flex;
+  align-items: center;
+  background: #e2e2e2;
+  margin: 10px 16px;
+  border-radius: 25px;
+  padding: 8px 12px;
+}
+
+.search-icon {
+  font-size: 20px;
+  color: #b6b6b6;
+}
+
+.search-input {
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  margin-left: 10px;
+  font-size: 14px;
+  color: #333;
 }
