@@ -1,29 +1,56 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from './product.service';
+import { ProductService } from '../product.service';
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  selector: 'app-home',
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
 })
-export class ProductListComponent implements OnInit {
-  products: any[] = [];
-  
+export class HomePage implements OnInit {
+  products: any[] = [];    // Menyimpan produk
+  page = 1;                // Menyimpan halaman yang sedang aktif
+  loading = false;         // Indikator loading
+  lastPage = false;        // Indikator halaman terakhir
+
   constructor(private productService: ProductService) {}
 
-  ngOnInit(): void {
-    this.loadProducts(1); // Load produk di page 1 misalnya
+  ngOnInit() {
+    this.loadProducts();   // Load produk ketika halaman di-initialize
   }
 
-  loadProducts(page: number) {
-    this.productService.getProducts(page).subscribe(
-      (response) => {
-        console.log('Data produk:', response); // Log data yang didapat dari API
-        this.products = response.data; // Asumsikan API mengembalikan data dalam response
+  loadProducts(event?: any) {
+    // Jika sedang loading, hentikan agar tidak ada request ganda
+    if (this.loading || this.lastPage) return;
+
+    this.loading = true; // Mulai proses loading
+
+    // Panggil service untuk mendapatkan produk berdasarkan page
+    this.productService.getProducts(this.page).subscribe(
+      (data: any[]) => { // Make sure the response is typed as an array
+        if (data.length === 0) {
+          this.lastPage = true;  // Set ke true jika tidak ada produk lagi
+        } else {
+          this.products = [...this.products, ...data]; // Menambahkan produk baru ke array
+        }
+        this.loading = false;    // Selesai proses loading
+
+        // Jika dipanggil dari infinite scroll event, akhiri event setelah loading selesai
+        if (event) {
+          event.target.complete();
+        }
       },
       (error) => {
-        console.error('Error mengambil produk:', error);
+        console.error('Error loading products', error);
+        this.loading = false;
+        if (event) {
+          event.target.complete();
+        }
       }
     );
+  }
+
+  loadMore(event: any) {
+    this.page++;          // Tambah halaman ketika load more
+    this.loadProducts(event);  // Panggil fungsi loadProducts dengan event
   }
 }

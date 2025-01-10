@@ -12,10 +12,11 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   getProducts(page: number): Observable<any> {
-    const headers = new HttpHeaders({ 'Accept': 'application/json' }); // Header untuk menerima JSON
-    return this.http.get<any>(`${this.apiUrl}?page=${page}`, { headers }) // Gunakan backtick untuk URL
-      .pipe(
-        tap(response => console.log('Response:', response))  // Tampilkan response ke console
-      );
+    // return this.http.get<any>($this.apiUrl?page=$page);
+    let data: Observable<any>;
+    data = this.http.get<any>(this.apiUrl);
+    // data = ['data'];
+    return data;
+
   }
 }
