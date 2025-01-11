@@ -7,15 +7,15 @@ import { ProductService } from '../product.service';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  products: any[] = [];    // Menyimpan produk
-  page = 1;                // Menyimpan halaman yang sedang aktif
-  loading = false;         // Indikator loading
-  lastPage = false;        // Indikator halaman terakhir
+  products: any[] = []; // Menyimpan produk
+  page = 1; // Menyimpan halaman yang sedang aktif
+  loading = false; // Indikator loading
+  lastPage = false; // Indikator halaman terakhir
 
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
-    this.loadProducts();   // Load produk ketika halaman di-initialize
+    this.loadProducts(); // Load produk ketika halaman di-initialize
   }
 
   loadProducts(event?: any) {
@@ -26,13 +26,14 @@ export class HomePage implements OnInit {
 
     // Panggil service untuk mendapatkan produk berdasarkan page
     this.productService.getProducts(this.page).subscribe(
-      (data: any[]) => { // Make sure the response is typed as an array
+      (response: any) => {
+        const data = response.data; // Menyesuaikan dengan format response
         if (data.length === 0) {
-          this.lastPage = true;  // Set ke true jika tidak ada produk lagi
+          this.lastPage = true; // Set ke true jika tidak ada produk lagi
         } else {
           this.products = [...this.products, ...data]; // Menambahkan produk baru ke array
         }
-        this.loading = false;    // Selesai proses loading
+        this.loading = false; // Selesai proses loading
 
         // Jika dipanggil dari infinite scroll event, akhiri event setelah loading selesai
         if (event) {
@@ -50,7 +51,9 @@ export class HomePage implements OnInit {
   }
 
   loadMore(event: any) {
-    this.page++;          // Tambah halaman ketika load more
-    this.loadProducts(event);  // Panggil fungsi loadProducts dengan event
+    if (this.lastPage) return; // Jangan lanjutkan jika sudah di halaman terakhir
+
+    this.page++; // Tambah halaman ketika load more
+    this.loadProducts(event); // Panggil fungsi loadProducts dengan event
   }
 }

@@ -5,7 +5,9 @@
         <ion-icon slot="icon-only" name="arrow-back" routerLink="/home"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Detail</ion-title>
+
+    <ion-title>{{ product?.name }}</ion-title>
+
     <ion-buttons slot="end">
       <ion-button>
         <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
@@ -14,19 +16,11 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
   <!-- Product Image Slider -->
   <div class="custom-slider">
-    <div class="slides">
-      <img src="https://via.placeholder.com/300x300/FF0000" alt="Product Image 1" />
-      <img src="https://via.placeholder.com/300x300/00FF00" alt="Product Image 2" />
-      <img src="https://via.placeholder.com/300x300/0000FF" alt="Product Image 3" />
-    </div>
-    <div class="dots">
-      <span class="dot active" data-index="0"></span>
-      <span class="dot" data-index="1"></span>
-      <span class="dot" data-index="2"></span>
-    </div>
+    <img *ngIf="product?.thumbnail" [src]="product?.thumbnail" alt="{{ product?.name }}">
   </div>
 
   <!-- Add to Bag Button -->
@@ -34,34 +28,10 @@
     <ion-button expand="block" class="add-to-bag-button" color="danger">Add to Bag</ion-button>
   </div>
 
-  <!-- Tab Menu -->
-  <ion-segment value="product-detail" class="tab-menu">
-    <ion-segment-button value="product-detail">
-      <ion-label>Product Detail</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="size-fit">
-      <ion-label>Size and Fit</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="more-about">
-      <ion-label>More About Me</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-
   <!-- Product Info -->
   <div class="product-info">
-    <p>SKU: 309953228083</p>
-    <p>Categories: Women / Blouse</p>
-    <p>Brand: Julia Owers</p>
+    <h2>{{ product?.name }}</h2>
+    <p>{{ product?.brand }}</p>
+    <p>{{ product?.price | currency }}</p>
   </div>
 </ion-content>
-
-<ion-footer class="footer">
-  <div class="footer-menu">
-    <ion-icon class="footer-icon" name="home-outline"></ion-icon>
-    <ion-icon class="footer-icon" name="heart-outline"></ion-icon>
-    <ion-icon class="footer-icon" name="heart-outline"></ion-icon>
-    <ion-icon class="footer-icon" name="cart-outline"></ion-icon>
-    <ion-icon class="footer-icon" name="person-outline"></ion-icon>
-  </div>
-</ion-footer>
-

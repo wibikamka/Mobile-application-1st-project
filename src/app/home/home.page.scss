@@ -24,6 +24,35 @@ ion-toolbar {
     color: #c52b30;
     margin-top: 15px;
   }
+
+  /* Produk */
+.product-item {
+  cursor: pointer;
+  display: flex;
+  justify-content: center; /* Pusatkan elemen secara horizontal */
+  margin-bottom: 20px; /* Spasi antar produk */
+  --inner-padding-start: 0; /* Menghapus padding bawaan Ionic */
+  --inner-padding-end: 0; /* Menghapus padding bawaan Ionic */
+}
+
+.product-item .product-image {
+  width: 100%; /* Gambar memenuhi lebar container */
+  padding-top: 100%; /* Membuat rasio persegi (1:1) */
+  position: relative; /* Untuk menempatkan gambar di dalamnya */
+  overflow: hidden;
+  border-radius: 10px; /* Sudut melengkung */
+  background-color: #f9f9f9; /* Warna latar belakang placeholder */
+}
+
+.product-item .product-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Gambar memenuhi lebar */
+  height: 100%; /* Gambar memenuhi tinggi */
+  object-fit: cover; /* Gambar menutupi area dengan cropping */
+}
+
   
   /* Search Bar */
   .search-container {
@@ -111,3 +140,67 @@ ion-toolbar {
     padding: 10px 0;
   }
   
+  .instagram-feed {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  
+  /* Container Umum */
+.post-container {
+  display: flex;
+  flex-direction: column; /* Elemen ditumpuk vertikal */
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  margin: 10px 0;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Header: Brand */
+.post-header {
+  display: flex;
+  justify-content: flex-start; /* Rata kiri */
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eaeaea; /* Garis pemisah */
+}
+
+.post-header h3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  text-align: left; /* Teks rata kiri */
+}
+
+/* Gambar Produk */
+.post-image {
+  width: 100%;
+  height: auto;
+}
+
+.post-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #eaeaea; /* Garis pemisah */
+}
+
+/* Caption dan Harga */
+.post-caption {
+  padding: 5px 10px; /* Mengatur ruang di sekitar caption */
+  text-align: left; /* Rata kiri */
+  margin-top: -10px; /* Membawa caption lebih ke atas */
+}
+
+.post-caption .product-name {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 0 5px 0; /* Jarak bawah pada nama produk */
+}
+
+.post-caption .product-price {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+}
+  }

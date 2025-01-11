@@ -32,7 +32,7 @@ const routes: Routes = [
     loadChildren: () => import('./bag/bag.module').then( m => m.BagPageModule)
   },
   {
-    path: 'detail',
+    path: 'detail/:id', // Menambahkan :id sebagai parameter dinamis
     loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)
   },
   {

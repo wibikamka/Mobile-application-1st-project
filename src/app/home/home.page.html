@@ -14,21 +14,40 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let product of products">
-      <ion-thumbnail slot="start">
+  <ion-list class="instagram-feed">
+    <ion-item *ngFor="let product of products" class="post-container"[routerLink]="['/detail', product.id]">
+      <!-- Header: Brand (tanpa avatar) -->
+      <div class="post-header">
+        <ion-label>
+          <h3>{{ product.brand }}</h3>
+        </ion-label>
+      </div>
+  
+      <!-- Gambar Produk -->
+      <div class="post-image">
         <img [src]="product.thumbnail" alt="{{ product.name }}">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{ product.name }}</h2>
-        <p>Brand: {{ product.brand_name }}</p>
-        <p>Price: {{ product.price | currency }}</p>
-      </ion-label>
+      </div>
+  
+      <!-- Caption dan Harga -->
+      <div class="post-caption">
+        <p class="product-name">{{ product.name }}</p>
+        <p class="product-price">{{ product.price | currency }}</p>
+      </div>
     </ion-item>
   </ion-list>
+  
+
 
   <ion-infinite-scroll (ionInfinite)="loadMore($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
+
+  <div class="footer">
+    <ion-icon class="footer-icon" name="home-outline" routerLink="/home"></ion-icon>
+    <ion-icon class="footer-icon" name="search-outline" routerLink="/product"></ion-icon>
+    <ion-icon class="footer-icon" name="add-circle-outline"></ion-icon>
+    <ion-icon class="footer-icon" name="heart-outline" routerLink="/product"></ion-icon>
+    <ion-icon class="footer-icon" name="person-outline" routerLink="/profile"></ion-icon>
+  </div>
 </ion-content>
