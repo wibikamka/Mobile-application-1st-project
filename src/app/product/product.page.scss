@@ -1,63 +1,34 @@
-/* Sticky Container for Header and Tabs */
-// .sticky-header-container {
-//     position: sticky;
-//     top: 0;
-//     z-index: 10;
-//     background-color: #fff; /* Ensure background is white */
-//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for separation */
-//   }
-  
-  /* Toolbar Styling */
-  ion-toolbar {
-    --background: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  
-  /* Tab Menu Styling */
-  .tab-menu {
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional for better visibility */
-  }
-  
-  /* Footer Toolbar */
-  ion-footer ion-toolbar {
-    border-top: 1px solid #ddd;
-    --background: #fff;
-  }
-  
-  /* Product Card Styling */
-  .product-card {
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  .product-card img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .product-title {
-    font-size: 12px;
-    font-weight: bold;
-    color: black;
-  }
-  
-  .product-brand {
-    font-size: 10px;
-    color: #979797;
-  }
-  
-  .product-price {
-    font-size: 12px;
-    font-weight: bold;
-    color: #C62E32;
-  }
-  
-  /* Footer Navigation */
+/* Styling untuk grid */
+.instagram-feed {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Membuat 3 kolom */
+  gap: 0; /* Menghapus jarak antar gambar */
+  margin: 0; /* Menghapus margin */
+  padding: 0; /* Menghapus padding */
+}
+
+/* Styling untuk gambar agar memenuhi kolom tanpa ada ruang kosong */
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Menjaga proporsi gambar */
+  object-position: center; /* Menjaga gambar tetap terpusat */
+  display: block;
+}
+
+/* Pastikan container post-image memenuhi ukuran yang tepat */
+.post-container {
+  padding: 0; /* Menghapus padding */
+  margin: 0; /* Menghapus margin */
+  overflow: hidden; /* Menyembunyikan gambar yang meluap */
+}
+
+.post-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* Styling untuk footer */
 .footer {
   display: flex;
   justify-content: space-around;
@@ -71,13 +42,6 @@
   height: 100px;
 }
 
-.footer-menu {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-}
-
 .footer-icon {
   font-size: 35px;
   color: #c52b30;
@@ -87,29 +51,11 @@
 }
 
 .footer-icon:hover {
-  color: #900000; /* Warna saat ikon di-hover */
-}
- /* Search Bar */
- .search-container {
-  display: flex;
-  align-items: center;
-  background: #e2e2e2;
-  margin: 10px 16px;
-  border-radius: 25px;
-  padding: 8px 12px;
+  color: #900000;
 }
 
-.search-icon {
-  font-size: 20px;
-  color: #b6b6b6;
-}
-
-.search-input {
-  flex-grow: 1;
-  border: none;
-  background: transparent;
-  outline: none;
-  margin-left: 10px;
-  font-size: 14px;
-  color: #333;
+/* Footer toolbar styling */
+ion-footer ion-toolbar {
+  border-top: 1px solid #ddd;
+  --background: #fff;
 }

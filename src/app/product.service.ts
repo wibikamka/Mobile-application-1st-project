@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl = 'https://d3c8-139-195-168-158.ngrok-free.app/api/product';
+  private apiUrl = 'https://b370-149-113-30-113.ngrok-free.app/api/product';
 
   constructor(private http: HttpClient) {}
 

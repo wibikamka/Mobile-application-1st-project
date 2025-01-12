@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })  
 export class ApiService {
-  baseUrl = 'https://d3c8-139-195-168-158.ngrok-free.app/api/'
+  baseUrl = 'https://b370-149-113-30-113.ngrok-free.app/api/'
   token : any=''
   constructor(private http: HttpClient) {
     

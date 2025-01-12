@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button>
-        <ion-icon slot="icon-only" name="arrow-back" routerLink="/home"></ion-icon>
+      <ion-button  routerLink="/home">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
 
@@ -24,8 +24,8 @@
   </div>
 
   <!-- Add to Bag Button -->
-  <div class="add-to-bag-container">
-    <ion-button expand="block" class="add-to-bag-button" color="danger">Add to Bag</ion-button>
+  <div class="add-to-bag-container" routerLink="/bag">
+    <ion-button expand="block" class="add-to-bag-button" color="danger" (click)="addToBag()">Add to Bag</ion-button>
   </div>
 
   <!-- Product Info -->
