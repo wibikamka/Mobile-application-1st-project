@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = 'https://b370-149-113-30-113.ngrok-free.app/api/product/api/post';  // URL API untuk mendapatkan post
+  private apiUrl = 'https://b370-149-113-30-113.ngrok-free.app/api/post';  // URL API untuk mendapatkan post
   private token: string = '';    // Simpan token JWT yang didapat setelah login
 
   constructor(private http: HttpClient) {}

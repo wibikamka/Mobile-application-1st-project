@@ -51,9 +51,8 @@ export class HomePage implements OnInit {
   }
 
   loadMore(event: any) {
-    if (this.lastPage) return; // Jangan lanjutkan jika sudah di halaman terakhir
-
-    this.page++; // Tambah halaman ketika load more
-    this.loadProducts(event); // Panggil fungsi loadProducts dengan event
+    // Panggil metode `loadProducts` dan operkan `event` untuk infinite scroll
+    this.loadProducts(event);
   }
+  
 }
