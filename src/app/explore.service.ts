@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ExploreService {
-  private apiUrl = 'https://d9d2-103-153-191-213.ngrok-free.app/api/post';
+  private apiUrl = environment.backendUrl + 'post';
 
   constructor(private http: HttpClient) {}
 
