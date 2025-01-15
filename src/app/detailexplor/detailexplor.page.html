@@ -1,14 +1,36 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>{{ post?.title }}</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content *ngIf="!loading">
+  <div *ngIf="loading">
+    <p>Loading...</p>
+  </div>
+  <!-- Informasi Pengguna (Profile Image dan Username) -->
+  <div *ngIf="post?.user" class="user-details">
+    <div class="user-info">
+      <img [src]="post.user.image_user" alt="User Image" class="user-image" />
+      <p class="username">{{ post.user.username }}</p>
+    </div>
+  </div>
 
-<ion-content>
-  <div *ngIf="post">
-    <img [src]="post.image" alt="Post Image" class="post-image" />
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.description }}</p>
-    <p><strong>Price:</strong> {{ post.price | currency }}</p>
+  <div *ngIf="post" class="post-container">
+    <img [src]="post?.image_url" alt="Post Image" class="post-image" />
+  </div>
+
+  <div *ngIf="post" class="post-details">
+    <h2>{{ post.caption }}</h2>
+    <p><strong>Viewed:</strong> {{ post.viewed }}</p>
+  </div>
+
+  <div *ngIf="post?.products?.length > 0" class="product-list">
+    <h3>Related Products:</h3>
+    <ion-list>
+      <ion-item *ngFor="let product of post.products">
+        <ion-thumbnail slot="start" [routerLink]="['/detail', product.id]">
+          <img [src]="product.image_product" />
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ product.name }}</h2>
+          <p>Price: {{ product.price | currency:'IDR' }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>

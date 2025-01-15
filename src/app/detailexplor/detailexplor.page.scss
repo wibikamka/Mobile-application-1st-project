@@ -1,0 +1,87 @@
+/* Menambahkan jarak atas untuk profil dan memastikan jarak ke gambar post tidak ada */
+.user-details {
+    display: flex;
+    align-items: center;  /* Menyusun elemen dalam satu baris */
+    gap: 10px;  /* Jarak antar elemen */
+    margin-top: 15px;  /* Menambahkan jarak antara profil dan atas */
+    margin-bottom: 15px;  /* Menghilangkan jarak antara profil dan gambar post */
+    justify-content: flex-start;  /* Menyusun elemen ke kiri */
+  }
+  
+  /* Menata user-info untuk gambar profil dan username */
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;  /* Jarak antara gambar dan username */
+    margin-left: 20px; /* Geser profil ke kanan */
+  }
+  
+  /* Styling untuk gambar profil */
+  .user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;  /* Membuat gambar menjadi bulat */
+    object-fit: cover;
+  }
+  
+  /* Styling untuk username */
+  .username {
+    font-size: 14px;  /* Ukuran font lebih kecil */
+    margin: 0;
+  }
+  
+  /* Styling untuk gambar post */
+  .post-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    // border-radius: 10px;  /* Menambahkan sudut pada gambar post */
+  }
+  
+  /* Styling untuk produk terkait */
+  .product-list {
+    margin-top: 20px;
+  }
+  
+  .product-list ion-item {
+    margin-bottom: 10px;  /* Menambahkan jarak antar item produk */
+  }
+  /* Menata caption agar lebih kecil dan mirip dengan Instagram */
+.post-details h2 {
+    font-size: 16px;  /* Ukuran font lebih kecil */
+    font-weight: normal;  /* Mengurangi ketebalan font */
+    line-height: 1.4;  /* Memberikan jarak antar baris yang lebih rapat */
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #333;  /* Warna teks lebih gelap untuk kontras */
+    text-overflow: ellipsis;  /* Menambahkan ellipsis jika teks terlalu panjang */
+    white-space: nowrap;  /* Menjaga caption tetap satu baris */
+    overflow: hidden;  /* Memotong teks jika terlalu panjang */
+  }
+  
+  /* Menata post container agar lebih rapi */
+  .post-container {
+    margin-bottom: 15px;
+  }
+  
+  ion-list {
+    padding-left: 0;
+  }
+  
+  ion-item {
+    margin-bottom: 10px;
+  }
+  
+  ion-thumbnail {
+    width: 60px;
+    height: 60px;
+  }
+  
+  ion-label h2 {
+    font-size: 16px;
+  }
+  
+  ion-label p {
+    font-size: 14px;
+  }
+  

@@ -54,7 +54,9 @@ const routes: Routes = [
   {
     path: 'detailexplor/:id',
     loadChildren: () => import('./detailexplor/detailexplor.module').then(m => m.DetailexplorPageModule) // Perbaiki di sini
-  },  {
+
+  },
+  {
     path: 'developer',
     loadChildren: () => import('./developer/developer.module').then( m => m.DeveloperPageModule)
   }

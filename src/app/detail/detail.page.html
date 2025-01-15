@@ -1,13 +1,11 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button  routerLink="/home">
+      <ion-button routerLink="/home">
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-
     <ion-title>{{ product?.name }}</ion-title>
-
     <ion-buttons slot="end">
       <ion-button>
         <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
@@ -16,22 +14,53 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
-  <!-- Product Image Slider -->
-  <div class="custom-slider">
-    <img *ngIf="product?.thumbnail" [src]="product?.thumbnail" alt="{{ product?.name }}">
+  <!-- Banner -->
+  <div class="banner">
+    <img *ngIf="product?.seller?.banner" [src]="product?.seller?.banner" alt="Seller Banner" class="banner-img" />
   </div>
 
-  <!-- Add to Bag Button -->
-  <div class="add-to-bag-container" routerLink="/bag">
-    <ion-button expand="block" class="add-to-bag-button" color="danger" (click)="addToBag()">Add to Bag</ion-button>
+  <!-- Product Images -->
+  <div class="product-images">
+    <div class="image-container">
+      <img *ngIf="product?.thumbnail" [src]="product?.thumbnail" alt="{{ product?.name }}" class="thumbnail" />
+    </div>
+    <div class="additional-images">
+      <img
+        *ngFor="let image of product?.images"
+        [src]="image.image"
+        alt="Additional Image"
+        class="additional-image"
+      />
+    </div>
   </div>
 
   <!-- Product Info -->
   <div class="product-info">
-    <h2>{{ product?.name }}</h2>
-    <p>{{ product?.brand }}</p>
-    <p>{{ product?.price | currency }}</p>
+    <h1>{{ product?.name }}</h1>
+    <p class="category">{{ product?.category?.name }}</p>
+    <p class="price">{{ product?.price | currency:'IDR':'symbol':'1.0-0' }}</p>
+    <p class="description">{{ product?.description }}</p>
+  </div>
+
+  <!-- Variants -->
+  <div class="variants">
+    <h3>Available Variants:</h3>
+    <ul>
+      <li *ngFor="let variant of product?.variants">
+        {{ variant.variant }} - Stock: {{ variant.stock }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Add to Bag Button -->
+  <div class="add-to-bag-container">
+    <ion-button expand="block" color="danger" (click)="addToBag()">Add to Bag</ion-button>
+  </div>
+
+  <!-- Seller Info -->
+  <div class="seller-info">
+    <img *ngIf="product?.seller?.logo" [src]="product?.seller?.logo" alt="Seller Logo" class="seller-logo" />
+    <h3>{{ product?.seller?.brand_name }}</h3>
   </div>
 </ion-content>
