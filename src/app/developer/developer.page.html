@@ -1,0 +1,176 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Developer Team</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Meet Our Developers</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <!-- Developer 1 -->
+      <ion-col size="12" size-md="6" size-lg="3">
+        <ion-card class="developer-card">
+          <img
+            src="assets/imgdev/wibi.jpg"
+            alt="Developer 1"
+            class="developer-image"
+          />
+          <ion-card-header>
+            <ion-card-title class="developer-name"
+              >NUR WIBISANA KAMKA</ion-card-title
+            >
+            <ion-card-subtitle class="developer-role"
+              >Frontend Developer</ion-card-subtitle
+            >
+          </ion-card-header>
+          <ion-card-content>
+            <p><strong></strong> 2602197766</p>
+            <p><strong></strong> nur.kamka&#64;binus.ac.id</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Developer 2 -->
+      <ion-col size="12" size-md="6" size-lg="3">
+        <ion-card class="developer-card">
+          <img
+            src="assets/imgdev/hiero.jpg"
+            alt="Developer 2"
+            class="developer-image"
+          />
+          <ion-card-header>
+            <ion-card-title class="developer-name"
+              >HIERONIMUS PRADNYA NARENDRA</ion-card-title
+            >
+            <ion-card-subtitle class="developer-role"
+              >Backend Developer</ion-card-subtitle
+            >
+          </ion-card-header>
+          <ion-card-content>
+            <p><strong></strong> 2602183344</p>
+            <p><strong></strong> hieronimus.narendra&#64;binus.ac.id</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Developer 3 -->
+      <ion-col size="12" size-md="6" size-lg="3">
+        <ion-card class="developer-card">
+          <img
+            src="assets/imgdev/antik.jpg"
+            alt="Developer 3"
+            class="developer-image"
+          />
+          <ion-card-header>
+            <ion-card-title class="developer-name"
+              >WENCESLAUS ANTIEKA DHITYA</ion-card-title
+            >
+            <ion-card-subtitle class="developer-role"
+              >UI/UX Designer</ion-card-subtitle
+            >
+          </ion-card-header>
+          <ion-card-content>
+            <p><strong></strong> 2602186264</p>
+            <p><strong></strong> wenceslaus.dhitya&#64;binus.ac.id</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Developer 4 -->
+      <ion-col size="12" size-md="6" size-lg="3">
+        <ion-card class="developer-card">
+          <img
+            src="assets/imgdev/nopal.jpg"
+            alt="Developer 4"
+            class="developer-image"
+          />
+          <ion-card-header>
+            <ion-card-title class="developer-name"
+              >NAUFAL NAWWAR RIADI</ion-card-title
+            >
+            <ion-card-subtitle class="developer-role"
+              >Project Manager</ion-card-subtitle
+            >
+          </ion-card-header>
+          <ion-card-content>
+            <p><strong></strong> 2602183981</p>
+            <p><strong></strong> naufal.riadi&#64;binus.ac.id</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<!-- Add CSS styles -->
+<style>
+  ion-card.developer-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  ion-card.developer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .developer-image {
+    width: 80%;
+    height: auto;
+    border-radius: 50%;
+    margin: 15px auto;
+    display: block;
+    border: 3px solid #f1f1f1;
+  }
+
+  .developer-name {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .developer-role {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+  }
+
+  ion-card-content p {
+    font-size: 14px;
+    color: #444;
+    text-align: center;
+  }
+
+  ion-card-content strong {
+    color: #333;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    ion-card {
+      margin: 15px 0;
+    }
+
+    .developer-name {
+      font-size: 16px;
+    }
+
+    .developer-role {
+      font-size: 12px;
+    }
+
+    .developer-image {
+      width: 50%;
+    }
+  }
+</style>
