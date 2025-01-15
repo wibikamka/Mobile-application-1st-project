@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://b370-149-113-30-113.ngrok-free.app/api/'
+  backendUrl: 'https://d9d2-103-153-191-213.ngrok-free.app/api/',
 };
 
 /*

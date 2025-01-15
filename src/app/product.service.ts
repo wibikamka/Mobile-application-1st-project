@@ -2,12 +2,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl = 'https://b370-149-113-30-113.ngrok-free.app/api/product';
+  private apiUrl = environment.backendUrl+'product';
 
   constructor(private http: HttpClient) {}
 

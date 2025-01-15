@@ -13,17 +13,22 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let product of products" size="4" class="post-container" [routerLink]="['/detail', product.id]">
+      <ion-col
+        *ngFor="let post of posts" 
+        size="4"
+        class="post-container"
+        [routerLink]="['/detailexplor', post.id]"  
+      >
         <div class="post-image">
-          <img *ngIf="product.thumbnail" [src]="product.thumbnail" alt="{{ product.name }}" class="product-image"/>
+          <img [src]="post.thumbnail" alt="{{ post.name }}">
         </div>
+        <div>{{ post.thumbnail }}</div>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
-    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
-    </ion-infinite-scroll-content>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore($event)">  <!-- Ganti 'loadProducts' menjadi 'loadPost' -->
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
   </ion-infinite-scroll>
 
   <div class="footer">

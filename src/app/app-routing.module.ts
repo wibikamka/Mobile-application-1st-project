@@ -50,6 +50,10 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'detailexplor/:id',
+    loadChildren: () => import('./detailexplor/detailexplor.module').then(m => m.DetailexplorPageModule) // Perbaiki di sini
   }
 ];
 

@@ -59,3 +59,8 @@ ion-footer ion-toolbar {
   border-top: 1px solid #ddd;
   --background: #fff;
 }
+.product-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Mengatur gambar agar tidak terdistorsi */
+}

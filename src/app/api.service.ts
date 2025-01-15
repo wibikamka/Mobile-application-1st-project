@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })  
 export class ApiService {
-  baseUrl = 'https://b370-149-113-30-113.ngrok-free.app/api/'
+  baseUrl = environment.backendUrl
   token : any=''
   constructor(private http: HttpClient) {
     
