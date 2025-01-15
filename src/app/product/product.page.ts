@@ -32,6 +32,7 @@ export class ProductPage implements OnInit {
           this.lastPage = true; // Set ke true jika tidak ada produk lagi
         } else {
           this.posts = [...this.posts, ...data]; // Menambahkan produk baru ke array
+          this.page++; // Menambah halaman setelah data berhasil dimuat
         }
         this.loading = false; // Selesai proses loading
 

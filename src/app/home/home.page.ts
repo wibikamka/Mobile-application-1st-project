@@ -32,6 +32,7 @@ export class HomePage implements OnInit {
           this.lastPage = true; // Set ke true jika tidak ada produk lagi
         } else {
           this.products = [...this.products, ...data]; // Menambahkan produk baru ke array
+          this.page++; // Menambah halaman setelah data berhasil dimuat
         }
         this.loading = false; // Selesai proses loading
 
@@ -54,5 +55,4 @@ export class HomePage implements OnInit {
     // Panggil metode `loadProducts` dan operkan `event` untuk infinite scroll
     this.loadProducts(event);
   }
-  
 }

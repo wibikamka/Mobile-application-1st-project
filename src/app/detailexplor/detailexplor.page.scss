@@ -1,32 +1,34 @@
-/* Menambahkan jarak atas untuk profil dan memastikan jarak ke gambar post tidak ada */
-.user-details {
-    display: flex;
-    align-items: center;  /* Menyusun elemen dalam satu baris */
-    gap: 10px;  /* Jarak antar elemen */
-    margin-top: 15px;  /* Menambahkan jarak antara profil dan atas */
-    margin-bottom: 15px;  /* Menghilangkan jarak antara profil dan gambar post */
-    justify-content: flex-start;  /* Menyusun elemen ke kiri */
+/* Menghilangkan shadow pada header */
+.no-shadow-header {
+    --box-shadow: none !important;
   }
   
-  /* Menata user-info untuk gambar profil dan username */
-  .user-info {
-    display: flex;
-    align-items: center;
-    gap: 5px;  /* Jarak antara gambar dan username */
-    margin-left: 20px; /* Geser profil ke kanan */
+  /* Memperkecil ukuran header */
+  .smaller-header {
+    --height: 50px; /* Menyesuaikan tinggi header */
   }
   
-  /* Styling untuk gambar profil */
+  /* Menata profil pengguna agar lebih rapat */
+  .user-details {
+    display: flex;
+    align-items: center; /* Menyusun elemen dalam satu baris */
+    gap: 10px; /* Jarak antar elemen */
+    margin-top: 10px; /* Mengurangi jarak atas */
+    margin-bottom: 0; /* Menghilangkan jarak bawah agar lebih rapat */
+    justify-content: flex-start; /* Menyusun elemen ke kiri */
+  }
+  
+  /* Styling gambar profil */
   .user-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;  /* Membuat gambar menjadi bulat */
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
     object-fit: cover;
   }
   
   /* Styling untuk username */
   .username {
-    font-size: 14px;  /* Ukuran font lebih kecil */
+    font-size: 14px; /* Menyesuaikan ukuran font username */
     margin: 0;
   }
   
@@ -83,5 +85,10 @@
   
   ion-label p {
     font-size: 14px;
+  }
+  /* di dalam detailexplor.page.scss */
+.caption {
+    text-align: right;  /* Menyusun teks ke kanan */
+    padding-right: 30px; /* Menambahkan ruang di sisi kanan jika diperlukan */
   }
   

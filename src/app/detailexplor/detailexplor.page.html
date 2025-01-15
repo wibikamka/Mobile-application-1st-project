@@ -1,7 +1,26 @@
+<ion-header class="no-shadow-header">
+  <ion-toolbar class="smaller-header">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/product">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ post?.name }}</ion-title>
+    <ion-buttons slot="end">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content *ngIf="!loading">
   <div *ngIf="loading">
     <p>Loading...</p>
   </div>
+  <ion-buttons slot="start">
+    <ion-button routerLink="/home">
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title>{{ post?.name }}</ion-title>
   <!-- Informasi Pengguna (Profile Image dan Username) -->
   <div *ngIf="post?.user" class="user-details">
     <div class="user-info">
