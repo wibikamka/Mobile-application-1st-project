@@ -1,7 +1,10 @@
 <ion-header [translucent]="true">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Italiana&display=swap"
+    rel="stylesheet"
+  />
   <ion-toolbar class="custom-header">
     <ion-title class="header-title">LOCALLY</ion-title>
     <ion-buttons slot="start">
@@ -14,40 +17,58 @@
 </ion-header>
 
 <ion-content>
-  <ion-list class="instagram-feed">
-    <ion-item *ngFor="let product of products" class="post-container"[routerLink]="['/detail', product.id]">
-      <!-- Header: Brand (tanpa avatar) -->
-      <div class="post-header">
-        <ion-label>
-          <h3>{{ product.brand }}</h3>
-        </ion-label>
-      </div>
-  
-      <!-- Gambar Produk -->
-      <div class="post-image">
-        <img [src]="product.thumbnail" alt="{{ product.name }}">
-      </div>
-  
-      <!-- Caption dan Harga -->
-      <div class="post-caption">
-        <p class="product-name">{{ product.name }}</p>
-        <p class="product-price">{{ product.price | currency }}</p>
-      </div>
-    </ion-item>
-  </ion-list>
-  
+  <ion-list class="product-list">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let product of products">
+          <div class="product-item" [routerLink]="['/detail', product.id]">
+            <!-- Gambar Produk -->
+            <div class="product-image">
+              <img [src]="product.thumbnail" alt="{{ product.name }}" />
+            </div>
 
+            <!-- Caption dan Harga -->
+            <div class="product-details">
+              <h3 class="product-name">{{ product.name }}</h3>
+              <p class="product-price">
+                {{ product.price | currency: 'Rp': true:'1.0-0' }}
+              </p>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
 
   <ion-infinite-scroll (ionInfinite)="loadMore($event)">
-    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data..."
+    >
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
 
   <div class="footer">
-    <ion-icon class="footer-icon" name="home-outline" routerLink="/home"></ion-icon>
-    <ion-icon class="footer-icon" name="search-outline" routerLink="/product"></ion-icon>
+    <ion-icon
+      class="footer-icon"
+      name="home-outline"
+      routerLink="/home"
+    ></ion-icon>
+    <ion-icon
+      class="footer-icon"
+      name="search-outline"
+      routerLink="/product"
+    ></ion-icon>
     <ion-icon class="footer-icon" name="add-circle-outline"></ion-icon>
-    <ion-icon class="footer-icon" name="heart-outline" routerLink="/bag"></ion-icon>
-    <ion-icon class="footer-icon" name="person-outline" routerLink="/profile"></ion-icon>
+    <ion-icon
+      class="footer-icon"
+      name="heart-outline"
+      routerLink="/bag"
+    ></ion-icon>
+    <ion-icon
+      class="footer-icon"
+      name="person-outline"
+      routerLink="/profile"
+    ></ion-icon>
   </div>
 </ion-content>

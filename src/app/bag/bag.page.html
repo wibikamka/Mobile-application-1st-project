@@ -18,8 +18,14 @@
       <p class="price">Rp. {{ item.price | number }}</p>
     </div>
     <div class="item-actions">
-      <ion-checkbox [(ngModel)]="item.selected" color="primary" (ionChange)="onSelectionChange()"></ion-checkbox>
-      <ion-button size="small" color="danger" (click)="removeFromCart(i)">Hapus</ion-button>
+      <ion-checkbox
+        [(ngModel)]="item.selected"
+        color="primary"
+        (ionChange)="onSelectionChange()"
+      ></ion-checkbox>
+      <ion-button size="small" color="danger" (click)="removeFromCart(i)"
+        >Hapus</ion-button
+      >
     </div>
     <div class="item-quantity">
       <ion-icon name="remove-circle-outline"></ion-icon>
@@ -41,7 +47,40 @@
 
   <!-- Action Buttons -->
   <div class="action-buttons">
-    <ion-button expand="block" color="danger" (click)="proceedToPayment()" routerlink="/checkout">Lanjut ke Pembayaran</ion-button>
-    <ion-button expand="block" fill="outline" color="danger" routerLink="/home">Lanjut Belanja</ion-button>
+    <ion-button
+      expand="block"
+      color="danger"
+      (click)="proceedToPayment()"
+      routerlink="/checkout"
+      >Lanjut ke Pembayaran</ion-button
+    >
+    <ion-button expand="block" fill="outline" color="danger" routerLink="/home"
+      >Lanjut Belanja</ion-button
+    >
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <ion-icon
+      class="footer-icon"
+      name="home-outline"
+      routerLink="/home"
+    ></ion-icon>
+    <ion-icon
+      class="footer-icon"
+      name="search-outline"
+      routerLink="/product"
+    ></ion-icon>
+    <ion-icon class="footer-icon" name="add-circle-outline"></ion-icon>
+    <ion-icon
+      class="footer-icon"
+      name="heart-outline"
+      routerLink="/bag"
+    ></ion-icon>
+    <ion-icon
+      class="footer-icon"
+      name="person-outline"
+      routerLink="/profile"
+    ></ion-icon>
   </div>
 </ion-content>

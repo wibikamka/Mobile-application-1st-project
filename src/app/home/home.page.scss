@@ -1,206 +1,117 @@
 /* Header */
 ion-toolbar {
-    padding: 20px 0; /* Memberikan ruang lebih di dalam toolbar */
-  }
-  
+  padding: 20px 0;
+}
+
 .custom-header {
-    min-height: 120px; /* Menyesuaikan tinggi minimum */
-    background-color: white;
-  }
-  .header-title {
-    text-align: center;
-    font-family: "Italiana", sans-serif;
-    font-size: 35px; /* Sesuaikan ukuran font jika diperlukan */
-    font-weight: bold;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding-top: 20px; /* Memberi jarak lebih ke atas */
-    margin-bottom: 5px;
-  }  
-  
-  .header-icon {
-    font-size: 35px;
-    color: #c52b30;
-    margin-top: 15px;
-  }
+  height: 80px;
+  background-color: white;
+}
 
-  /* Produk */
-.product-item {
-  cursor: pointer;
+.header-title {
+  text-align: center;
+  font-family: "Italiana", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
   display: flex;
-  justify-content: center; /* Pusatkan elemen secara horizontal */
-  margin-bottom: 20px; /* Spasi antar produk */
-  --inner-padding-start: 0; /* Menghapus padding bawaan Ionic */
-  --inner-padding-end: 0; /* Menghapus padding bawaan Ionic */
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 20px;
+  margin-bottom: 5px;
 }
 
-.product-item .product-image {
-  width: 100%; /* Gambar memenuhi lebar container */
-  padding-top: 100%; /* Membuat rasio persegi (1:1) */
-  position: relative; /* Untuk menempatkan gambar di dalamnya */
+.header-icon {
+  font-size: 35px;
+  color: #c52b30;
+  margin-top: 15px;
+}
+
+/* Produk */
+/* Produk */
+.product-item {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  border-radius: 10px; /* Sudut melengkung */
-  background-color: #f9f9f9; /* Warna latar belakang placeholder */
+  transition: all 0.3s ease;
 }
 
-.product-item .product-image img {
+.product-image {
+  width: 100%;
+  padding-top: 100%; /* Ini memastikan rasio gambar kotak */
+  position: relative;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.product-image img {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%; /* Gambar memenuhi lebar */
-  height: 100%; /* Gambar memenuhi tinggi */
-  object-fit: cover; /* Gambar menutupi area dengan cropping */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-  
-  /* Search Bar */
-  .search-container {
-    display: flex;
-    align-items: center;
-    background: #e2e2e2;
-    margin: 10px 16px;
-    border-radius: 25px;
-    padding: 8px 12px;
-  }
-  
-  .search-icon {
-    font-size: 20px;
-    color: #b6b6b6;
-  }
-  
-  .search-input {
-    flex-grow: 1;
-    border: none;
-    background: transparent;
-    outline: none;
-    margin-left: 10px;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  /* Categories */
-  .categories {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 16px;
-    margin-top: 10px;
-  }
-  
-  .category {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .category-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 2px solid #c52b30;
-  }
-  
-  .category-label {
-    margin-top: 5px;
-    font-size: 12px;
-    font-weight: 500;
-    color: #333;
-  }
-  
-  /* Banner */
-  .banner-container {
-    margin: 10px 16px;
-  }
-  
-  .banner {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-    border-radius: 8px;
-  }
-  
-  /* Footer Navigation */
-  .footer {
-    display: flex;
-    justify-content: space-around;
-    background: white;
-    padding: 10px 0;
-    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 80px;
-  }
-  
-  .footer-icon {
-    font-size: 35px;
-    color: #c52b30;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 0;
-  }
-  
-  .instagram-feed {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  
-  /* Container Umum */
-.post-container {
-  display: flex;
-  flex-direction: column; /* Elemen ditumpuk vertikal */
-  border: 1px solid #eaeaea;
-  border-radius: 8px;
-  margin: 10px 0;
-  background-color: #fff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+/* Produk - Nama dan Harga */
+.product-details {
+  padding: 15px;
+  text-align: left; /* Rata kiri untuk nama dan harga */
 }
 
-/* Header: Brand */
-.post-header {
+.product-name {
+  font-size: 12px;
+  margin: 5px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-price {
+  font-size: 12px;
+  color: #c52b30;
+  font-weight: 600;
+  margin-top: 10px;
+  text-align: left; /* Rata kiri untuk harga */
+}
+
+/* Infinite Scroll */
+ion-infinite-scroll {
+  padding: 15px;
+}
+
+/* Footer */
+.footer {
   display: flex;
-  justify-content: flex-start; /* Rata kiri */
-  align-items: center;
+  justify-content: space-around;
+  background: white;
+  padding: 10px 0;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+}
+
+.footer-icon {
+  font-size: 35px;
+  color: #c52b30;
+}
+
+/* Grid */
+ion-grid {
   padding: 10px;
-  border-bottom: 1px solid #eaeaea; /* Garis pemisah */
 }
 
-.post-header h3 {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 0;
-  text-align: left; /* Teks rata kiri */
+ion-row {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-/* Gambar Produk */
-.post-image {
-  width: 100%;
-  height: auto;
+ion-col {
+  padding: 5px;
 }
-
-.post-image img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-bottom: 1px solid #eaeaea; /* Garis pemisah */
-}
-
-/* Caption dan Harga */
-.post-caption {
-  padding: 5px 10px; /* Mengatur ruang di sekitar caption */
-  text-align: left; /* Rata kiri */
-  margin-top: -10px; /* Membawa caption lebih ke atas */
-}
-
-.post-caption .product-name {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 0 0 5px 0; /* Jarak bawah pada nama produk */
-}
-
-.post-caption .product-price {
-  font-size: 14px;
-  color: #555;
-  margin: 0;
-}
-  }
