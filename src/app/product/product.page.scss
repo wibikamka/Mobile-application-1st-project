@@ -1,30 +1,40 @@
-/* Styling untuk grid */
 .instagram-feed {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Membuat 3 kolom */
-  gap: 0; /* Menghapus jarak antar gambar */
-  margin: 0; /* Menghapus margin */
-  padding: 0; /* Menghapus padding */
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); /* Membuat grid dengan 4 kolom dengan lebar yang sama */
+  grid-gap: 3px;
 }
 
-/* Styling untuk gambar agar memenuhi kolom tanpa ada ruang kosong */
+.post-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+}
+
 .product-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Menjaga proporsi gambar */
-  object-position: center; /* Menjaga gambar tetap terpusat */
-  display: block;
+  object-fit: cover;
+  border-radius: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-/* Pastikan container post-image memenuhi ukuran yang tepat */
-.post-container {
-  padding: 0; /* Menghapus padding */
-  margin: 0; /* Menghapus margin */
-  overflow: hidden; /* Menyembunyikan gambar yang meluap */
+.highlight-left {
+  grid-column: span 1;
+  grid-row: span 2;
 }
 
-.post-image {
-  width: 100%;
+.highlight-right {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.highlight-left .product-image,
+.highlight-right .product-image {
   height: 100%;
 }
 

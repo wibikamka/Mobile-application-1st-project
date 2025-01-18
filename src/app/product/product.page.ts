@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExploreService } from '../explore.service';  // Pastikan path ini benar
+import { ExploreService } from '../explore.service'; // Pastikan path ini benar
 
 @Component({
   selector: 'app-product',
@@ -7,7 +7,7 @@ import { ExploreService } from '../explore.service';  // Pastikan path ini benar
   styleUrls: ['./product.page.scss'],
 })
 export class ProductPage implements OnInit {
-  posts: any[] = [];  // Ganti 'products' menjadi 'posts'
+  posts: any[] = []; // Ganti 'products' menjadi 'posts'
   page = 1; // Variabel untuk menyimpan halaman saat ini
   loading = false;
   lastPage = false;
