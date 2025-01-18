@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
-import { Router } from '@angular/router';  // Impor Router
+import { Router } from '@angular/router'; // Impor Router
 
 @Component({
   selector: 'app-detail',
@@ -32,5 +32,19 @@ export class DetailPage implements OnInit {
     cart.push({ ...this.product, selected: false }); // Menambahkan produk ke dalam keranjang
     localStorage.setItem('cart', JSON.stringify(cart));
     this.router.navigate(['/bag']); // Mengarahkan ke halaman keranjang
+  }
+
+  calculateAverageRating(reviews: any[]): number {
+    if (!reviews || reviews.length === 0) return 0;
+    const totalRating = reviews.reduce((acc, review) => acc + review.rating, 0);
+    return totalRating / reviews.length;
+  }
+  getStars(rating: number): any[] {
+    return new Array(Math.floor(rating)); // Membuat array sebanyak rating bintang
+  }
+
+  // Fungsi untuk mengubah ukuran gambar ketika diklik
+  toggleImageSize(review: any) {
+    review.isLargeImage = !review.isLargeImage;
   }
 }

@@ -4,13 +4,13 @@
     3,
     1fr
   ); /* Membuat grid dengan 4 kolom dengan lebar yang sama */
-  grid-gap: 3px;
+  grid-gap: 1px;
 }
 
 .post-container {
   position: relative;
   width: 100%;
-  padding-top: 100%;
+  padding-top: 120%;
 }
 
 .product-image {

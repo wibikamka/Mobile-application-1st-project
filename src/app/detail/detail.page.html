@@ -17,13 +17,23 @@
 <ion-content>
   <!-- Banner -->
   <div class="banner">
-    <img *ngIf="product?.seller?.banner" [src]="product?.seller?.banner" alt="Seller Banner" class="banner-img" />
+    <img
+      *ngIf="product?.seller?.banner"
+      [src]="product?.seller?.banner"
+      alt="Seller Banner"
+      class="banner-img"
+    />
   </div>
 
   <!-- Product Images -->
   <div class="product-images">
     <div class="image-container">
-      <img *ngIf="product?.thumbnail" [src]="product?.thumbnail" alt="{{ product?.name }}" class="thumbnail" />
+      <img
+        *ngIf="product?.thumbnail"
+        [src]="product?.thumbnail"
+        alt="{{ product?.name }}"
+        class="thumbnail"
+      />
     </div>
     <div class="additional-images">
       <img
@@ -35,32 +45,97 @@
     </div>
   </div>
 
+  <!-- Seller Info -->
+  <div class="seller-info">
+    <img
+      *ngIf="product?.seller?.logo"
+      [src]="product?.seller?.logo"
+      alt="Seller Logo"
+      class="seller-logo"
+    />
+    <h3 class="brand-name">{{ product?.seller?.brand_name }}</h3>
+  </div>
+
   <!-- Product Info -->
   <div class="product-info">
-    <h1>{{ product?.name }}</h1>
-    <p class="category">{{ product?.category?.name }}</p>
-    <p class="price">{{ product?.price | currency:'IDR':'symbol':'1.0-0' }}</p>
+    <h1 class="product-name">{{ product?.name }}</h1>
+    <p class="price">Rp{{ product?.price | number:'1.0-0' }}</p>
     <p class="description">{{ product?.description }}</p>
+    <p class="category">Category: {{ product?.category?.name }}</p>
   </div>
 
   <!-- Variants -->
   <div class="variants">
     <h3>Available Variants:</h3>
-    <ul>
-      <li *ngFor="let variant of product?.variants">
+    <ion-select placeholder="Select a variant">
+      <ion-select-option *ngFor="let variant of product?.variants">
         {{ variant.variant }} - Stock: {{ variant.stock }}
-      </li>
-    </ul>
+      </ion-select-option>
+    </ion-select>
+  </div>
+
+  <!-- Reviews Section -->
+  <div class="reviews">
+    <h2>Customer Reviews</h2>
+    <div class="overall-rating">
+      <p>
+        Overall Rating: {{ calculateAverageRating(product?.review) |
+        number:'1.1-1' }} / 5
+      </p>
+      <div class="star-rating">
+        <ion-icon
+          *ngFor="let star of getStars(calculateAverageRating(product?.review))"
+          name="star"
+          color="gold"
+        ></ion-icon>
+      </div>
+    </div>
+
+    <!-- Display Reviews -->
+    <div *ngFor="let review of product?.review" class="review-item">
+      <div class="review-header">
+        <img
+          *ngIf="review?.profile_picture"
+          [src]="review?.profile_picture"
+          alt="Reviewer Profile"
+          class="review-profile-img"
+          (click)="toggleImageSize(review)"
+        />
+        <div class="review-details">
+          <h4 class="review-username">{{ review?.username }}</h4>
+          <p class="review-date">
+            {{ review?.created_at | date: 'dd MMM yyyy' }}
+          </p>
+        </div>
+      </div>
+      <div class="review-body">
+        <div class="star-rating">
+          <ion-icon
+            *ngFor="let star of getStars(review?.rating)"
+            name="star"
+            color="gold"
+          ></ion-icon>
+        </div>
+        <p class="review-comment">{{ review?.comment }}</p>
+
+        <!-- Menampilkan gambar hanya jika review?.image ada -->
+        <img
+          *ngIf="review?.image"
+          [src]="review?.image"
+          alt="Review Image"
+          class="review-image"
+          [class.large]="review?.isLargeImage"
+        />
+
+        <!-- Pastikan tidak ada elemen icon atau alt lain yang muncul jika review?.image tidak ada -->
+      </div>
+    </div>
   </div>
 
   <!-- Add to Bag Button -->
   <div class="add-to-bag-container">
-    <ion-button expand="block" color="danger" (click)="addToBag()">Add to Bag</ion-button>
-  </div>
-
-  <!-- Seller Info -->
-  <div class="seller-info">
-    <img *ngIf="product?.seller?.logo" [src]="product?.seller?.logo" alt="Seller Logo" class="seller-logo" />
-    <h3>{{ product?.seller?.brand_name }}</h3>
+    <ion-button expand="block" color="danger" (click)="addToBag()"
+      >Add to Bag</ion-button
+    >
   </div>
 </ion-content>
