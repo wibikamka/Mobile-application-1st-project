@@ -134,11 +134,16 @@ ion-content {
 /* Variants Styling */
 .variants {
   margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .variants h3 {
-  font-size: 1.1em;
-  color: #555;
+  font-size: 1.15em;
+  color: #333;
   margin-bottom: 10px;
   text-align: left;
 }
@@ -160,6 +165,12 @@ ion-select {
 /* Add to Bag Button Styling */
 .add-to-bag-container {
   margin-top: 20px;
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
 }
 
 ion-button {
@@ -179,6 +190,7 @@ ion-button:hover {
 /* REVIEW */
 .reviews {
   margin-top: 30px;
+  margin-bottom: 5rem;
 }
 
 .overall-rating {
@@ -208,7 +220,7 @@ ion-button:hover {
 
 /* Review Item Styling */
 .review-item {
-  margin-top: 20px;
+  margin-top: 8px;
   padding: 20px;
   border-radius: 10px;
   background-color: #f9f9f9;
@@ -278,7 +290,6 @@ ion-button:hover {
 /* Divider Between Reviews */
 .review-item + .review-item {
   border-top: 1px solid #ddd;
-  margin-top: 20px;
 }
 
 /* Make the design responsive */
@@ -299,10 +310,6 @@ ion-button:hover {
   .review-image {
     max-width: 80%;
   }
-
-  .review-item {
-    padding: 15px;
-  }
 }
 
 /* Review Section */
@@ -315,7 +322,7 @@ ion-button:hover {
 }
 
 .review-item {
-  margin-top: 20px;
+  // margin-top: 20px;
   padding: 15px;
   border-radius: 8px;
   background-color: #f9f9f9;
@@ -377,7 +384,6 @@ ion-button:hover {
 
 .review-item + .review-item {
   border-top: 1px solid #ddd;
-  margin-top: 20px;
 }
 
 .reviews {
