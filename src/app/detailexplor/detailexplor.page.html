@@ -1,18 +1,5 @@
-<ion-header class="no-shadow-header">
-  <ion-toolbar class="smaller-header">
-    <ion-buttons slot="start">
-      <ion-button routerLink="/product">
-        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>{{ post?.name }}</ion-title>
-    <ion-buttons slot="end">
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content *ngIf="!loading">
-  <div *ngIf="loading">
+<ion-content *ngIf="!loading" class="content-container">
+  <div *ngIf="loading" class="loading-overlay">
     <p>Loading...</p>
   </div>
   <ion-buttons slot="start">
@@ -20,7 +7,7 @@
       <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
     </ion-button>
   </ion-buttons>
-  <ion-title>{{ post?.name }}</ion-title>
+  <ion-title class="post-title">{{ post?.name }}</ion-title>
   <!-- Informasi Pengguna (Profile Image dan Username) -->
   <div *ngIf="post?.user" class="user-details">
     <div class="user-info">
@@ -39,7 +26,7 @@
   </div>
 
   <div *ngIf="post?.products?.length > 0" class="product-list">
-    <h3>Related Products:</h3>
+    <h3 style="text-align: center">Related Products</h3>
     <ion-list>
       <ion-item *ngFor="let product of post.products">
         <ion-thumbnail slot="start" [routerLink]="['/detail', product.id]">
@@ -47,9 +34,33 @@
         </ion-thumbnail>
         <ion-label>
           <h2>{{ product.name }}</h2>
-          <p>Price: {{ product.price | currency:'IDR' }}</p>
+          <p>{{ product.price | currency:'Rp' }}</p>
         </ion-label>
       </ion-item>
     </ion-list>
+  </div>
+
+  <div class="footer">
+    <ion-icon
+      class="footer-icon"
+      name="home-outline"
+      routerLink="/home"
+    ></ion-icon>
+    <ion-icon
+      class="footer-icon"
+      name="search-outline"
+      routerLink="/product"
+    ></ion-icon>
+    <ion-icon class="footer-icon" name="add-circle-outline"></ion-icon>
+    <ion-icon
+      class="footer-icon"
+      name="heart-outline"
+      routerLink="/bag"
+    ></ion-icon>
+    <ion-icon
+      class="footer-icon"
+      name="person-outline"
+      routerLink="/profile"
+    ></ion-icon>
   </div>
 </ion-content>
