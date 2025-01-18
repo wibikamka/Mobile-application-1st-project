@@ -185,6 +185,14 @@ ion-button:hover {
   font-size: 1.2em;
   font-weight: bold;
   display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 8px;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  display: flex;
   align-items: center;
 }
 
@@ -302,13 +310,6 @@ ion-button:hover {
   margin-top: 30px;
 }
 
-.overall-rating {
-  font-size: 1.2em;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-}
-
 .star-rating {
   display: flex;
 }
@@ -377,4 +378,41 @@ ion-button:hover {
 .review-item + .review-item {
   border-top: 1px solid #ddd;
   margin-top: 20px;
+}
+
+.reviews {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  // text-align: center;
+}
+
+.reviews h2 {
+  text-align: center;
+}
+
+.star-rating {
+  display: flex;
+  // justify-content: center;
+  gap: 5px;
+}
+
+.star-rating-top {
+  justify-content: center;
+}
+
+.star-rating ion-icon {
+  font-size: 20px;
+  color: gold;
+}
+
+p {
+  font-size: 16px;
+  color: #333;
+}
+
+.no-review {
+  font-style: italic;
+  color: #666;
 }

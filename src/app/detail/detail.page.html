@@ -77,19 +77,24 @@
   <!-- Reviews Section -->
   <div class="reviews">
     <h2>Customer Reviews</h2>
-    <div class="overall-rating">
-      <p>
-        Overall Rating: {{ calculateAverageRating(product?.review) |
-        number:'1.1-1' }} / 5
-      </p>
-      <div class="star-rating">
-        <ion-icon
-          *ngFor="let star of getStars(calculateAverageRating(product?.review))"
-          name="star"
-          color="gold"
-        ></ion-icon>
+    <div *ngIf="product?.review?.length > 0; else noReview">
+      <div class="overall-rating">
+        <div class="star-rating-top">
+          <ion-icon
+            *ngFor="let star of getStars(calculateAverageRating(product?.review))"
+            name="star"
+            color="gold"
+          ></ion-icon>
+        </div>
+        <p>
+          Overall Rating: {{ calculateAverageRating(product?.review) |
+          number:'1.1-1' }} / 5
+        </p>
       </div>
     </div>
+    <ng-template #noReview>
+      <p>No reviews yet. Be the first to review this product!</p>
+    </ng-template>
 
     <!-- Display Reviews -->
     <div *ngFor="let review of product?.review" class="review-item">
