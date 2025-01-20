@@ -1,0 +1,76 @@
+<ion-header [translucent]="true">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Italiana&display=swap"
+    rel="stylesheet"
+  />
+  <ion-toolbar class="custom-header">
+    <ion-title class="header-title">LOCALLY</ion-title>
+    <ion-buttons slot="start">
+      <ion-icon class="header-icon" name="cart-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-icon class="header-icon" name="notifications-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="!loading; else loadingContent">
+  <div class="profile-header">
+    <div class="profile-picture">
+      <img
+        [src]="profile?.profile_picture || 'assets/img/profile-placeholder.png'"
+        alt="Profile Picture"
+      />
+    </div>
+    <div class="profile-info">
+      <h2>{{ profile?.username || 'Unknown User' }}</h2>
+      <p>ID: {{ profile?.id }}</p>
+    </div>
+  </div>
+
+  <div class="profile-posts">
+    <h3>Posts</h3>
+    <div *ngIf="posts.length === 0" class="no-posts">
+      <p>Belum pernah mengunggah postingan.</p>
+    </div>
+    <ion-grid *ngIf="posts.length > 0">
+      <ion-row>
+        <ion-col size="4" *ngFor="let post of posts">
+          <div class="post-item" [routerLink]="['/detailexplor', post.id]">
+            <img [src]="post.image" alt="Post Image" />
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="footer">
+    <ion-icon
+      class="footer-icon"
+      name="home-outline"
+      routerLink="/home"
+    ></ion-icon>
+    <ion-icon
+      class="footer-icon"
+      name="search-outline"
+      routerLink="/product"
+    ></ion-icon>
+    <ion-icon class="footer-icon" name="add-circle-outline"></ion-icon>
+    <ion-icon
+      class="footer-icon"
+      name="heart-outline"
+      routerLink="/bag"
+    ></ion-icon>
+    <ion-icon
+      class="footer-icon"
+      name="person-outline"
+      routerLink="/profile"
+    ></ion-icon>
+  </div>
+</ion-content>
+
+<ng-template #loadingContent>
+  <ion-spinner></ion-spinner>
+</ng-template>

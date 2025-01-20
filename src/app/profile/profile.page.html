@@ -6,16 +6,26 @@
 
 <ion-content>
   <!-- Bagian Header Profil -->
-  <div class="profile-header">
+  <div class="profile-header" *ngIf="profile; else loading">
     <div class="profile-picture">
-      <img src="assets/img/profile-placeholder.png" alt="Foto Profil" />
+      <img [src]="profile.profile_picture" alt="Foto Profil" />
     </div>
     <div class="profile-info">
-      <h2>Nama Pengguna</h2>
-      <p>ID: 12345678</p>
-      <ion-button size="small" color="light">Edit Profil</ion-button>
+      <h2>{{ profile.username }}</h2>
+      <p>ID: {{ profile.id }}</p>
+      <ion-button
+        size="small"
+        color="light"
+        [routerLink]="['/profile', profile.id]"
+        >My Posts</ion-button
+      >
     </div>
   </div>
+
+  <!-- Template Loading -->
+  <ng-template #loading>
+    <p>Loading profile...</p>
+  </ng-template>
 
   <!-- Statistik Profil -->
   <div class="profile-stats">

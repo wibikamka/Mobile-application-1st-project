@@ -70,6 +70,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./developer/developer.module').then((m) => m.DeveloperPageModule),
   },
+  {
+    path: 'profile/:id',
+    loadChildren: () =>
+      import('./profile-id/profile-id.module').then(
+        (m) => m.ProfileIdPageModule
+      ),
+  },
 ];
 
 @NgModule({

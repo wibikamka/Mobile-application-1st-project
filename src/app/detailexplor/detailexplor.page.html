@@ -1,3 +1,21 @@
+<ion-header [translucent]="true">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Italiana&display=swap"
+    rel="stylesheet"
+  />
+  <ion-toolbar class="custom-header">
+    <ion-title class="header-title">LOCALLY</ion-title>
+    <ion-buttons slot="start">
+      <ion-icon class="header-icon" name="cart-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-icon class="header-icon" name="notifications-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content *ngIf="!loading" class="content-container">
   <div *ngIf="loading" class="loading-overlay">
     <p>Loading...</p>
@@ -10,7 +28,7 @@
   <ion-title class="post-title">{{ post?.name }}</ion-title>
   <!-- Informasi Pengguna (Profile Image dan Username) -->
   <div *ngIf="post?.user" class="user-details">
-    <div class="user-info">
+    <div class="user-info" [routerLink]="['/profile', post.user.id]">
       <img [src]="post.user.image_user" alt="User Image" class="user-image" />
       <p class="username">{{ post.user.username }}</p>
     </div>
