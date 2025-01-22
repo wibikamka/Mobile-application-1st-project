@@ -1,61 +1,85 @@
-<ion-header [translucent]="true">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Italiana&display=swap"
-    rel="stylesheet"
-  />
-  <ion-toolbar class="custom-header">
-    <ion-title class="header-title">LOCALLY</ion-title>
-    <ion-buttons slot="start">
-      <ion-icon class="header-icon" name="cart-outline"></ion-icon>
-    </ion-buttons>
-    <ion-buttons slot="end">
-      <ion-icon class="header-icon" name="notifications-outline"></ion-icon>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content *ngIf="!loading" class="content-container">
+<!-- HTML Template -->
+<ion-content class="content-container">
+  <!-- Loading Overlay -->
   <div *ngIf="loading" class="loading-overlay">
-    <p>Loading...</p>
+    <ion-spinner name="crescent" color="primary"></ion-spinner>
   </div>
-  <ion-buttons slot="start">
-    <ion-button routerLink="/home">
-      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+
+  <!-- User Profile Section -->
+  <div
+    *ngIf="post?.user"
+    class="user-profile-card"
+    [routerLink]="['/profile', post.user.id]"
+  >
+    <div class="user-profile-content">
+      <div class="user-avatar-wrapper">
+        <img
+          [src]="post.user.image_user"
+          alt="User Profile"
+          class="user-avatar"
+        />
+        <div class="online-indicator"></div>
+      </div>
+      <div class="user-info">
+        <h3 class="user-name">{{ post.user.username }}</h3>
+        <span class="post-time">Posted 2h ago</span>
+      </div>
+    </div>
+    <ion-button fill="clear" class="follow-button">
+      <ion-icon name="add-outline"></ion-icon>
+      Follow
     </ion-button>
-  </ion-buttons>
-  <ion-title class="post-title">{{ post?.name }}</ion-title>
-  <!-- Informasi Pengguna (Profile Image dan Username) -->
-  <div *ngIf="post?.user" class="user-details">
-    <div class="user-info" [routerLink]="['/profile', post.user.id]">
-      <img [src]="post.user.image_user" alt="User Image" class="user-image" />
-      <p class="username">{{ post.user.username }}</p>
+  </div>
+
+  <!-- Post Image Section -->
+  <div *ngIf="post" class="post-image-container">
+    <img [src]="post?.image_url" alt="Post Image" class="post-image" />
+    <div class="post-overlay">
+      <div class="post-stats">
+        <div class="stat-item">
+          <ion-icon name="eye-outline"></ion-icon>
+          <span>{{ post.viewed }}</span>
+        </div>
+        <div class="stat-item">
+          <ion-icon name="heart-outline"></ion-icon>
+          <span>{{ post.likes || 0 }}</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div *ngIf="post" class="post-container">
-    <img [src]="post?.image_url" alt="Post Image" class="post-image" />
-  </div>
-
+  <!-- Post Details Section -->
   <div *ngIf="post" class="post-details">
-    <h2>{{ post.caption }}</h2>
-    <p><strong>Viewed:</strong> {{ post.viewed }}</p>
+    <h2 class="caption">{{ post.caption }}</h2>
+    <div class="tags">
+      <span class="tag" *ngFor="let tag of ['Fashion', 'Trending', 'New']"
+        >#{{ tag }}</span
+      >
+    </div>
   </div>
 
-  <div *ngIf="post?.products?.length > 0" class="product-list">
-    <h3 style="text-align: center">Related Products</h3>
-    <ion-list>
-      <ion-item *ngFor="let product of post.products">
-        <ion-thumbnail slot="start" [routerLink]="['/detail', product.id]">
-          <img [src]="product.image_product" />
-        </ion-thumbnail>
-        <ion-label>
-          <h2>{{ product.name }}</h2>
-          <p>{{ product.price | currency:'Rp' }}</p>
-        </ion-label>
-      </ion-item>
-    </ion-list>
+  <!-- Related Products Section -->
+  <div *ngIf="post?.products?.length > 0" class="products-section">
+    <div class="section-header">
+      <h3>Related Products</h3>
+      <ion-button fill="clear" size="small">See All</ion-button>
+    </div>
+    <div class="product-grid">
+      <div
+        class="product-card"
+        *ngFor="let product of post.products"
+        [routerLink]="['/detail', product.id]"
+      >
+        <div class="product-image-wrapper">
+          <img [src]="product.image_product" alt="Product" />
+          <ion-icon name="heart-outline" class="favorite-icon"></ion-icon>
+        </div>
+        <div class="product-info">
+          <h4>{{ product.name }}</h4>
+          <p class="price">{{ product.price | currency:'Rp' }}</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="footer">

@@ -1,145 +1,160 @@
-<ion-header>
+<ion-header class="modern-header">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button routerLink="/home">
-        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>{{ product?.name }}</ion-title>
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+    <div class="toolbar-content">
+      <ion-buttons slot="start">
+        <ion-button class="back-btn" routerLink="/home">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Product details</ion-title>
+      <ion-buttons slot="end">
+        <ion-button class="menu-btn">
+          <ion-icon name="ellipsis-vertical"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <!-- Banner -->
-  <div class="banner">
-    <img
-      *ngIf="product?.seller?.banner"
-      [src]="product?.seller?.banner"
-      alt="Seller Banner"
-      class="banner-img"
-    />
-  </div>
-
-  <!-- Product Images -->
-  <div class="product-images">
-    <div class="image-container">
-      <img
-        *ngIf="product?.thumbnail"
-        [src]="product?.thumbnail"
-        alt="{{ product?.name }}"
-        class="thumbnail"
-      />
+<ion-content class="modern-content">
+  <!-- Banner and Product Images -->
+  <div class="hero-section">
+    <div class="store-banner" *ngIf="product?.seller?.banner">
+      <img [src]="product?.seller?.banner" alt="Store Banner" />
+      <div class="banner-overlay"></div>
     </div>
-    <div class="additional-images">
-      <img
-        *ngFor="let image of product?.images"
-        [src]="image.image"
-        alt="Additional Image"
-        class="additional-image"
-      />
+
+    <div class="product-gallery">
+      <div class="main-image">
+        <img [src]="product?.thumbnail" [alt]="product?.name" />
+      </div>
+      <div class="image-grid">
+        <div class="grid-item" *ngFor="let image of product?.images">
+          <img [src]="image.image" alt="Product View" />
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Seller Info -->
-  <div class="seller-info">
-    <img
-      *ngIf="product?.seller?.logo"
-      [src]="product?.seller?.logo"
-      alt="Seller Logo"
-      class="seller-logo"
-    />
-    <h3 class="brand-name">{{ product?.seller?.brand_name }}</h3>
+  <!-- Store Info -->
+  <div class="store-info">
+    <div class="store-profile">
+      <img [src]="product?.seller?.logo" alt="Store Logo" class="store-logo" />
+      <div class="store-details">
+        <h3>{{ product?.seller?.brand_name }}</h3>
+        <div class="store-badges">
+          <span class="badge verified">Verified Store</span>
+          <!-- <span class="badge rating">4.8 ⭐</span> -->
+        </div>
+      </div>
+    </div>
+    <!-- <ion-button fill="outline" class="follow-btn">Follow Store</ion-button> -->
   </div>
 
-  <!-- Product Info -->
-  <div class="product-info">
-    <h1 class="product-name">{{ product?.name }}</h1>
-    <p class="price">Rp{{ product?.price | number:'1.0-0' }}</p>
-    <p class="description">{{ product?.description }}</p>
-    <p class="category">Category: {{ product?.category?.name }}</p>
+  <!-- Product Information -->
+  <div class="product-card">
+    <div class="product-header">
+      <h1>{{ product?.name }}</h1>
+      <div class="price-tag">
+        <span class="currency">Rp</span>
+        <span class="amount">{{ product?.price | number:'1.0-0' }}</span>
+      </div>
+    </div>
+
+    <div class="category-badge">
+      <ion-icon name="pricetag-outline"></ion-icon>
+      <span>{{ product?.category?.name }}</span>
+    </div>
+
+    <div class="description-section">
+      <p>{{ product?.description }}</p>
+    </div>
   </div>
 
-  <!-- Variants -->
-  <div class="variants">
-    <h3>Product Variants</h3>
-    <ion-select placeholder="Select a variant">
-      <ion-select-option *ngFor="let variant of product?.variants">
-        {{ variant.variant }} - Stock: {{ variant.stock }}
-      </ion-select-option>
-    </ion-select>
+  <!-- Variants Selection -->
+  <div class="variants-card">
+    <h3>
+      <ion-icon name="color-palette-outline"></ion-icon>
+      Product Variants
+    </h3>
+    <div class="variants-grid">
+      <div class="variant-item" *ngFor="let variant of product?.variants">
+        <div class="variant-content">
+          <span class="variant-name">{{ variant.variant }}</span>
+          <span class="stock-info" [class.low-stock]="variant.stock < 5">
+            {{ variant.stock }} in stock
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Reviews Section -->
-  <div class="reviews">
-    <h2>Customer Reviews</h2>
-    <div *ngIf="product?.review?.length > 0; else noReview">
-      <div class="overall-rating">
-        <div class="star-rating-top">
+  <div class="reviews-section">
+    <div class="reviews-header">
+      <h2>Customer Reviews</h2>
+      <div class="rating-summary" *ngIf="product?.review?.length > 0">
+        <div class="rating-stars">
           <ion-icon
             *ngFor="let star of getStars(calculateAverageRating(product?.review))"
             name="star"
-            color="gold"
-          ></ion-icon>
+            class="star-icon"
+          >
+          </ion-icon>
         </div>
-        <p>
-          Overall Rating: {{ calculateAverageRating(product?.review) |
-          number:'1.1-1' }} / 5
-        </p>
+        <span class="rating-average">
+          {{ calculateAverageRating(product?.review) | number:'1.1-1' }}/5
+        </span>
       </div>
     </div>
-    <ng-template #noReview>
-      <p style="text-align: center">
-        No reviews yet. Be the first to review this product!
-      </p>
-    </ng-template>
 
-    <!-- Display Reviews -->
-    <div *ngFor="let review of product?.review" class="review-item">
-      <div class="review-header">
-        <img
-          *ngIf="review?.profile_picture"
-          [src]="review?.profile_picture"
-          alt="Reviewer Profile"
-          class="review-profile-img"
-          (click)="toggleImageSize(review)"
-        />
-        <div class="review-details">
-          <h4 class="review-username">{{ review?.username }}</h4>
-          <p class="review-date">
-            {{ review?.created_at | date: 'dd MMM yyyy' }}
-          </p>
+    <div class="reviews-list">
+      <div class="review-card" *ngFor="let review of product?.review">
+        <div class="review-header">
+          <img
+            [src]="review?.profile_picture"
+            alt="Reviewer"
+            class="reviewer-avatar"
+          />
+          <div class="reviewer-info">
+            <h4>{{ review?.username }}</h4>
+            <div class="review-meta">
+              <div class="rating-stars">
+                <ion-icon
+                  *ngFor="let star of getStars(review?.rating)"
+                  name="star"
+                  class="star-icon"
+                >
+                </ion-icon>
+              </div>
+              <span class="review-date"
+                >{{ review?.created_at | date: 'dd MMM yyyy' }}</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="review-content">
+          <p>{{ review?.comment }}</p>
+          <img
+            *ngIf="review?.image"
+            [src]="review?.image"
+            alt="Review Image"
+            class="review-image"
+            [class.expanded]="review?.isLargeImage"
+            (click)="toggleImageSize(review)"
+          />
         </div>
       </div>
-      <div class="review-body">
-        <div class="star-rating">
-          <ion-icon
-            *ngFor="let star of getStars(review?.rating)"
-            name="star"
-            color="gold"
-          ></ion-icon>
-        </div>
-        <p class="review-comment">{{ review?.comment }}</p>
+    </div>
 
-        <!-- Menampilkan gambar hanya jika review?.image ada -->
-        <img
-          *ngIf="review?.image"
-          [src]="review?.image"
-          alt="Review Image"
-          class="review-image"
-          [class.large]="review?.isLargeImage"
-        />
-
-        <!-- Pastikan tidak ada elemen icon atau alt lain yang muncul jika review?.image tidak ada -->
-      </div>
+    <div class="no-reviews" *ngIf="!product?.review?.length">
+      <ion-icon name="chatbubble-outline"></ion-icon>
+      <p>No reviews yet. Be the first to review this product!</p>
     </div>
   </div>
 
-  <!-- Add to Bag Button -->
+  <!-- Add to Cart Button -->
   <div class="add-to-bag-container">
     <ion-button expand="block" color="danger" (click)="addToBag()"
       >Add to Bag</ion-button
