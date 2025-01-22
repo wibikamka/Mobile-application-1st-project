@@ -16,36 +16,80 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="!loading; else loadingContent">
-  <div class="profile-header">
-    <div class="profile-picture">
-      <img
-        [src]="profile?.profile_picture || 'assets/img/profile-placeholder.png'"
-        alt="Profile Picture"
-      />
+<ion-content *ngIf="!loading; else loadingContent" class="modern-content">
+  <!-- Profile Section -->
+  <div class="profile-container">
+    <div class="profile-cover">
+      <div class="profile-overlay"></div>
     </div>
-    <div class="profile-info">
-      <h2>{{ profile?.username || 'Unknown User' }}</h2>
-      <p>ID: {{ profile?.id }}</p>
+
+    <div class="profile-main">
+      <div class="profile-picture-container">
+        <img
+          [src]="profile?.profile_picture || 'assets/img/profile-placeholder.png'"
+          alt="Profile Picture"
+          class="profile-picture"
+        />
+        <div class="profile-status-indicator"></div>
+      </div>
+
+      <div class="profile-details">
+        <h2 class="profile-name">{{ profile?.username || 'Unknown User' }}</h2>
+        <div class="profile-meta">
+          <span class="profile-id">ID: {{ profile?.id }}</span>
+          <div class="profile-stats">
+            <div class="stat-item">
+              <span class="stat-value">{{ posts.length }}</span>
+              <span class="stat-label">Posts</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">0</span>
+              <span class="stat-label">Followers</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">0</span>
+              <span class="stat-label">Following</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="profile-posts">
-    <h3>Posts</h3>
-    <div *ngIf="posts.length === 0" class="no-posts">
-      <p>Belum pernah mengunggah postingan.</p>
+  <!-- Posts Section -->
+  <div class="posts-section">
+    <div class="posts-header">
+      <h3>Posts</h3>
+      <div class="view-options">
+        <ion-icon name="grid-outline" class="active"></ion-icon>
+        <ion-icon name="square-outline"></ion-icon>
+      </div>
     </div>
-    <ion-grid *ngIf="posts.length > 0">
+
+    <div *ngIf="posts.length === 0" class="no-posts-container">
+      <ion-icon name="images-outline" class="no-posts-icon"></ion-icon>
+      <p class="no-posts-text">No posts yet</p>
+      <p class="no-posts-subtext">Share your first moment with the community</p>
+    </div>
+
+    <ion-grid *ngIf="posts.length > 0" class="posts-grid">
       <ion-row>
         <ion-col size="4" *ngFor="let post of posts">
           <div class="post-item" [routerLink]="['/detailexplor', post.id]">
             <img [src]="post.image" alt="Post Image" />
+            <div class="post-overlay">
+              <div class="post-stats">
+                <span><ion-icon name="heart-outline"></ion-icon> 0</span>
+                <span><ion-icon name="chatbubble-outline"></ion-icon> 0</span>
+              </div>
+            </div>
           </div>
         </ion-col>
       </ion-row>
     </ion-grid>
   </div>
 
+  <!-- Footer (Unchanged) -->
   <div class="footer">
     <ion-icon
       class="footer-icon"
@@ -72,5 +116,8 @@
 </ion-content>
 
 <ng-template #loadingContent>
-  <ion-spinner></ion-spinner>
+  <div class="loading-container">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Loading profile...</p>
+  </div>
 </ng-template>

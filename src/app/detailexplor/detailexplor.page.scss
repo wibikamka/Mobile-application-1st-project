@@ -126,9 +126,9 @@
 
 /* Post Details */
 .post-details {
-  padding: 16px;
+  padding: 16px 16px 0;
   background: white;
-  margin-bottom: 16px;
+  // margin-bottom: 16px;
 }
 
 .caption {
@@ -151,19 +151,16 @@
   border-radius: 16px;
   font-size: 0.9rem;
 }
-
 /* Products Section */
 .products-section {
   padding: 16px;
   background: white;
-  margin-bottom: 80px;
 }
 
 .section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
 }
 
 .section-header h3 {
@@ -172,51 +169,41 @@
   color: #1a1a1a;
 }
 
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+/* Product List */
+.product-list {
+  display: flex;
+  flex-direction: column;
   gap: 16px;
 }
 
-.product-card {
+.product-card-horizontal {
+  display: flex;
+  align-items: center;
   background: white;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid lightgray;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 0 12px;
 }
 
-.product-image-wrapper {
-  position: relative;
-  padding-top: 100%;
-}
-
-.product-image-wrapper img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.product-image-horizontal {
+  width: 100px;
+  height: 100px;
   object-fit: cover;
+  border-radius: 8px;
+  margin-right: 16px;
 }
 
-.favorite-icon {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  font-size: 1.5rem;
-  color: white;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 6px;
-  border-radius: 50%;
+.product-info-horizontal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.product-info {
-  padding: 12px;
-}
-
-.product-info h4 {
+.product-name {
   margin: 0 0 4px 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #1a1a1a;
 }
 
@@ -225,46 +212,3 @@
   font-weight: 600;
   color: #c52b30;
 }
-/* Footer */
-.footer {
-  display: flex;
-  justify-content: space-around;
-  background: white;
-  padding: 10px 0;
-  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 80px;
-}
-
-.footer-icon {
-  font-size: 35px;
-  color: #c52b30;
-}
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-
-// .nav-item ion-icon {
-//   font-size: 24px;
-//   color: #666;
-// }
-
-// .nav-item span {
-//   font-size: 0.7rem;
-//   color: #666;
-// }
-
-// .add-button ion-icon {
-//   font-size: 40px;
-//   color: #c52b30;
-// }
-
-// .nav-item:active ion-icon,
-// .nav-item:active span {
-//   color: #c52b30;
-// }

@@ -64,45 +64,22 @@
       <h3>Related Products</h3>
       <ion-button fill="clear" size="small">See All</ion-button>
     </div>
-    <div class="product-grid">
+    <div class="product-list">
       <div
-        class="product-card"
+        class="product-card-horizontal"
         *ngFor="let product of post.products"
         [routerLink]="['/detail', product.id]"
       >
-        <div class="product-image-wrapper">
-          <img [src]="product.image_product" alt="Product" />
-          <ion-icon name="heart-outline" class="favorite-icon"></ion-icon>
-        </div>
-        <div class="product-info">
-          <h4>{{ product.name }}</h4>
+        <img
+          class="product-image-horizontal"
+          [src]="product.image_product"
+          alt="Product"
+        />
+        <div class="product-info-horizontal">
+          <h4 class="product-name">{{ product.name }}</h4>
           <p class="price">{{ product.price | currency:'Rp' }}</p>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="footer">
-    <ion-icon
-      class="footer-icon"
-      name="home-outline"
-      routerLink="/home"
-    ></ion-icon>
-    <ion-icon
-      class="footer-icon"
-      name="search-outline"
-      routerLink="/product"
-    ></ion-icon>
-    <ion-icon class="footer-icon" name="add-circle-outline"></ion-icon>
-    <ion-icon
-      class="footer-icon"
-      name="heart-outline"
-      routerLink="/bag"
-    ></ion-icon>
-    <ion-icon
-      class="footer-icon"
-      name="person-outline"
-      routerLink="/profile"
-    ></ion-icon>
   </div>
 </ion-content>
