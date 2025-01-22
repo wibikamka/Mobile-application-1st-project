@@ -1,18 +1,11 @@
 <ion-header class="modern-header">
   <ion-toolbar>
-    <div class="toolbar-content">
-      <ion-buttons slot="start">
-        <ion-button class="back-btn" routerLink="/home">
-          <ion-icon name="arrow-back-outline"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-      <ion-title>Product details</ion-title>
-      <ion-buttons slot="end">
-        <ion-button class="menu-btn">
-          <ion-icon name="ellipsis-vertical"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </div>
+    <ion-buttons slot="start">
+      <ion-button class="back-btn" (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Product detail</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -60,14 +53,13 @@
         <span class="amount">{{ product?.price | number:'1.0-0' }}</span>
       </div>
     </div>
-
     <div class="category-badge">
       <ion-icon name="pricetag-outline"></ion-icon>
       <span>{{ product?.category?.name }}</span>
     </div>
-
     <div class="description-section">
       <p>{{ product?.description }}</p>
+      <p>ID Product: {{ product?.id }}</p>
     </div>
   </div>
 

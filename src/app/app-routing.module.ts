@@ -76,7 +76,11 @@ const routes: Routes = [
       import('./profile-id/profile-id.module').then(
         (m) => m.ProfileIdPageModule
       ),
+  },  {
+    path: 'createpost',
+    loadChildren: () => import('./createpost/createpost.module').then( m => m.CreatepostPageModule)
   },
+
 ];
 
 @NgModule({

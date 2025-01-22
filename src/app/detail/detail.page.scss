@@ -1,7 +1,7 @@
-/* Modern Header */
+// HEADER
 .modern-header ion-toolbar {
   --background: #ffffff;
-  --border-width: 0;
+  --color: #333;
   --min-height: 60px;
 }
 
@@ -11,8 +11,7 @@
   padding: 0 8px;
 }
 
-.back-btn,
-.menu-btn {
+.back-btn {
   --padding-start: 8px;
   --padding-end: 8px;
   --color: #1a1a1a;
@@ -395,7 +394,7 @@
   background-color: white;
 }
 
-ion-button {
+.add-to-bag-container ion-button {
   --border-radius: 8px;
   font-size: 1.1em;
   font-weight: bold;

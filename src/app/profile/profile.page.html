@@ -1,135 +1,145 @@
-<ion-header class="modern-header">
-  <ion-toolbar>
-    <ion-title>Profil Saya</ion-title>
+<ion-header [translucent]="true">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Italiana&display=swap"
+    rel="stylesheet"
+  />
+  <ion-toolbar class="custom-header">
+    <ion-title class="header-title">LOCALLY</ion-title>
+    <ion-buttons slot="start">
+      <ion-icon class="header-icon" name="cart-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-icon class="header-icon" name="notifications-outline"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="profile-content">
   <!-- Profile Header -->
-  <div class="profile-container" *ngIf="profile; else loading">
-    <div class="profile-header-card">
-      <div class="profile-background"></div>
-      <div class="profile-content-wrapper">
-        <div class="profile-picture-container">
-          <img
-            [src]="profile.profile_picture"
-            alt="Foto Profil"
-            class="profile-picture"
-          />
-          <div class="profile-status-badge"></div>
-        </div>
-        <div class="profile-info">
-          <h2>{{ profile.username }}</h2>
-          <p class="user-id">ID: {{ profile.id }}</p>
-          <ion-button
-            size="small"
-            class="posts-button"
-            [routerLink]="['/profile', profile.id]"
-          >
-            <ion-icon name="images-outline" slot="start"></ion-icon>
-            My Posts
-          </ion-button>
-        </div>
+  <div class="profile-header-card" *ngIf="profile; else loadingHeader">
+    <div class="profile-background"></div>
+    <div class="profile-content-wrapper">
+      <div class="profile-picture-container">
+        <img
+          [src]="profile.profile_picture"
+          alt="Foto Profil"
+          class="profile-picture"
+        />
+        <div class="profile-status-badge"></div>
       </div>
-    </div>
-
-    <!-- Profile Stats -->
-    <div class="stats-container">
-      <div class="stat-card">
-        <div class="stat-icon">
-          <ion-icon name="bag-check-outline"></ion-icon>
-        </div>
-        <div class="stat-info">
-          <h3>10</h3>
-          <p>Pesanan</p>
-        </div>
-      </div>
-
-      <div class="stat-card">
-        <div class="stat-icon">
-          <ion-icon name="heart"></ion-icon>
-        </div>
-        <div class="stat-info">
-          <h3>5</h3>
-          <p>Wishlist</p>
-        </div>
-      </div>
-
-      <div class="stat-card">
-        <div class="stat-icon">
-          <ion-icon name="ticket"></ion-icon>
-        </div>
-        <div class="stat-info">
-          <h3>20</h3>
-          <p>Voucher</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Menu Items -->
-    <div class="menu-container">
-      <div class="menu-section">
-        <h4 class="section-title">Account Settings</h4>
-        <ion-list lines="none">
-          <ion-item [routerLink]="['/developer']" class="menu-item">
-            <div class="menu-icon">
-              <ion-icon name="people"></ion-icon>
-            </div>
-            <ion-label>Developer</ion-label>
-            <!-- <ion-icon name="chevron-forward" slot="end"></ion-icon> -->
-          </ion-item>
-
-          <ion-item class="menu-item">
-            <div class="menu-icon">
-              <ion-icon name="cart"></ion-icon>
-            </div>
-            <ion-label>Pesanan Saya</ion-label>
-            <!-- <ion-icon name="chevron-forward" slot="end"></ion-icon> -->
-          </ion-item>
-
-          <ion-item class="menu-item">
-            <div class="menu-icon">
-              <ion-icon name="heart"></ion-icon>
-            </div>
-            <ion-label>Wishlist</ion-label>
-            <!-- <ion-icon name="chevron-forward" slot="end"></ion-icon> -->
-          </ion-item>
-
-          <ion-item class="menu-item">
-            <div class="menu-icon">
-              <ion-icon name="gift"></ion-icon>
-            </div>
-            <ion-label>Voucher</ion-label>
-            <!-- <span class="badge">3 New</span> -->
-            <!-- <ion-icon name="chevron-forward" slot="end"></ion-icon> -->
-          </ion-item>
-
-          <ion-item class="menu-item">
-            <div class="menu-icon">
-              <ion-icon name="settings"></ion-icon>
-            </div>
-            <ion-label>Pengaturan</ion-label>
-            <!-- <ion-icon name="chevron-forward" slot="end"></ion-icon> -->
-          </ion-item>
-
-          <ion-item class="menu-item logout">
-            <div class="menu-icon">
-              <ion-icon name="log-out"></ion-icon>
-            </div>
-            <ion-label>Keluar</ion-label>
-          </ion-item>
-        </ion-list>
+      <div class="profile-info">
+        <h2>{{ profile.username }}</h2>
+        <p class="user-id">ID: {{ profile.id }}</p>
+        <ion-button
+          size="small"
+          class="posts-button"
+          [routerLink]="['/profile', profile.id]"
+        >
+          <ion-icon name="images-outline" slot="start"></ion-icon>
+          My Posts
+        </ion-button>
       </div>
     </div>
   </div>
 
-  <!-- Loading Template -->
-  <ng-template #loading>
+  <ng-template #loadingHeader>
     <div class="loading-container">
       <ion-spinner name="crescent"></ion-spinner>
-      <p>Loading profile...</p>
+      <p>Loading profile header...</p>
     </div>
   </ng-template>
+
+  <!-- Profile Stats -->
+  <div class="stats-container">
+    <div class="stat-card">
+      <div class="stat-icon">
+        <ion-icon name="bag-check-outline"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>10</h3>
+        <p>Pesanan</p>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon">
+        <ion-icon name="heart"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>5</h3>
+        <p>Wishlist</p>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon">
+        <ion-icon name="ticket"></ion-icon>
+      </div>
+      <div class="stat-info">
+        <h3>20</h3>
+        <p>Voucher</p>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #loadingStats>
+    <div class="loading-container">
+      <ion-spinner name="crescent"></ion-spinner>
+      <p>Loading profile stats...</p>
+    </div>
+  </ng-template>
+
+  <!-- Menu Items (always visible) -->
+  <div class="menu-container">
+    <div class="menu-section">
+      <h4 class="section-title">Account Settings</h4>
+      <ion-list lines="none">
+        <ion-item [routerLink]="['/developer']" class="menu-item">
+          <div class="menu-icon">
+            <ion-icon name="people"></ion-icon>
+          </div>
+          <ion-label>Developer</ion-label>
+        </ion-item>
+
+        <ion-item class="menu-item">
+          <div class="menu-icon">
+            <ion-icon name="cart"></ion-icon>
+          </div>
+          <ion-label>Pesanan Saya</ion-label>
+        </ion-item>
+
+        <ion-item class="menu-item">
+          <div class="menu-icon">
+            <ion-icon name="heart"></ion-icon>
+          </div>
+          <ion-label>Wishlist</ion-label>
+        </ion-item>
+
+        <ion-item class="menu-item">
+          <div class="menu-icon">
+            <ion-icon name="gift"></ion-icon>
+          </div>
+          <ion-label>Voucher</ion-label>
+        </ion-item>
+
+        <ion-item class="menu-item">
+          <div class="menu-icon">
+            <ion-icon name="settings"></ion-icon>
+          </div>
+          <ion-label>Pengaturan</ion-label>
+        </ion-item>
+
+        <ion-item class="menu-item">
+          <div class="menu-icon">
+            <ion-icon name="log-out"></ion-icon>
+          </div>
+          <ion-label>Keluar</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
 
   <!-- Keeping original footer -->
   <div class="footer">
@@ -143,7 +153,11 @@
       name="search-outline"
       routerLink="/product"
     ></ion-icon>
-    <ion-icon class="footer-icon" name="add-circle-outline"></ion-icon>
+    <ion-icon
+      class="footer-icon"
+      name="add-circle-outline"
+      routerLink="/createpost"
+    ></ion-icon>
     <ion-icon
       class="footer-icon"
       name="heart-outline"

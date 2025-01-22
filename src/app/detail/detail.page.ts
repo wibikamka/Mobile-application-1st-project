@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
-import { Router } from '@angular/router'; // Impor Router
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-detail',
@@ -14,7 +15,8 @@ export class DetailPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private router: Router // Suntikkan Router ke dalam konstruktor
+    private router: Router,
+    private navCtrl: NavController
   ) {}
 
   ngOnInit() {
@@ -46,5 +48,9 @@ export class DetailPage implements OnInit {
   // Fungsi untuk mengubah ukuran gambar ketika diklik
   toggleImageSize(review: any) {
     review.isLargeImage = !review.isLargeImage;
+  }
+
+  goBack() {
+    this.navCtrl.back();
   }
 }

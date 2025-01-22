@@ -1,7 +1,29 @@
-.modern-header ion-toolbar {
-  --background: #ffffff;
-  --color: #333333;
-  box-shadow: none;
+/* Header */
+ion-toolbar {
+  padding: 20px 0;
+}
+
+.custom-header {
+  height: 80px;
+  background-color: white;
+}
+
+.header-title {
+  text-align: center;
+  font-family: "Italiana", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 20px;
+  margin-bottom: 5px;
+}
+
+.header-icon {
+  font-size: 35px;
+  color: #c52b30;
+  margin-top: 15px;
 }
 
 /* Content Styles */
@@ -163,6 +185,7 @@
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 4rem;
 }
 
 .section-title {
@@ -213,22 +236,6 @@
   border-radius: 10px;
   font-size: 12px;
   margin-right: 10px;
-}
-
-.logout {
-  margin-top: 20px;
-}
-
-.logout .menu-icon {
-  background: rgba(244, 67, 54, 0.1);
-}
-
-.logout .menu-icon ion-icon {
-  color: #f44336;
-}
-
-.logout ion-label {
-  color: #f44336;
 }
 
 /* Loading State */

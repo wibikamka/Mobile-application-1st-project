@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-home',
@@ -7,14 +8,20 @@ import { ProductService } from '../product.service';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  productsFromPost: any[] = []; // Semua produk dari JSON
+  post: any = null; // Post khusus untuk baris 1 atau kelipatan 4
   products: any[] = []; // Menyimpan produk
   page = 1; // Menyimpan halaman yang sedang aktif
   loading = false; // Indikator loading
   lastPage = false; // Indikator halaman terakhir
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private apiService: ApiService
+  ) {}
 
   ngOnInit() {
+    this.loadPostWithProduct();
     this.loadProducts(); // Load produk ketika halaman di-initialize
   }
 
@@ -54,5 +61,24 @@ export class HomePage implements OnInit {
   loadMore(event: any) {
     // Panggil metode `loadProducts` dan operkan `event` untuk infinite scroll
     this.loadProducts(event);
+  }
+
+  loadPostWithProduct() {
+    this.apiService.get(`postwithproduct`).subscribe(
+      (response: any) => {
+        this.post = response.post;
+        this.productsFromPost = response.products;
+      },
+      (error) => {
+        console.error('Error fetching data:', error);
+      }
+    );
+  }
+
+  isSpecialRow(index: number): boolean {
+    if (index === 0 || (index + 1) % 4 === 0) {
+      // this.loadPostWithProduct();
+    }
+    return index === 0 || (index + 1) % 4 === 0;
   }
 }

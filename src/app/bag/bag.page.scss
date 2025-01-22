@@ -1,3 +1,31 @@
+/* Header */
+ion-toolbar {
+  padding: 20px 0;
+}
+
+.custom-header {
+  height: 80px;
+  background-color: white;
+}
+
+.header-title {
+  text-align: center;
+  font-family: "Italiana", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 20px;
+  margin-bottom: 5px;
+}
+
+.header-icon {
+  font-size: 35px;
+  color: #c52b30;
+  margin-top: 15px;
+}
+
 /* Cart Item Styles */
 .cart-item {
   border-bottom: 1px solid #ddd;
