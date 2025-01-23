@@ -20,22 +20,54 @@
   <ion-list class="product-list">
     <ion-grid>
       <ion-row>
-        <ion-col size="6" *ngFor="let product of products">
-          <div class="product-item" [routerLink]="['/detail', product.id]">
-            <!-- Gambar Produk -->
-            <div class="product-image">
-              <img [src]="product.thumbnail" alt="{{ product.name }}" />
+        <ng-container *ngFor="let product of products; let i = index">
+          <!-- Produk Biasa -->
+          <ion-col size="6" *ngIf="!isSpecialRow(i)">
+            <div class="product-item" [routerLink]="['/detail', product.id]">
+              <div class="product-image">
+                <img [src]="product.thumbnail" alt="{{ product.name }}" />
+              </div>
+              <div class="product-details">
+                <h3 class="product-name">{{ product.name }}</h3>
+                <p class="product-price">
+                  {{ product.price | currency: 'Rp': true:'1.0-0' }}
+                </p>
+              </div>
             </div>
+          </ion-col>
 
-            <!-- Caption dan Harga -->
-            <div class="product-details">
-              <h3 class="product-name">{{ product.name }}</h3>
-              <p class="product-price">
-                {{ product.price | currency: 'Rp': true:'1.0-0' }}
-              </p>
+          <!-- Special Column -->
+          <ion-col size="12" *ngIf="isSpecialRow(i)">
+            <div class="special-column">
+              <!-- Gambar Post -->
+              <div class="post-image" [routerLink]="['/detailexplor', post.id]">
+                <img [src]="post.image_url" alt="Special Post" />
+              </div>
+
+              <!-- Produk dari Post -->
+              <div class="post-products">
+                <div
+                  *ngFor="let postProduct of productsFromPost"
+                  class="post-product-item"
+                  [routerLink]="['/detail', postProduct.id]"
+                >
+                  <div class="post-product-image">
+                    <img
+                      [src]="postProduct.image_product"
+                      alt="{{ postProduct.name }}"
+                    />
+                  </div>
+                  <div class="post-product-details">
+                    <h4 class="post-product-name">{{ postProduct.name }}</h4>
+                    <p class="post-product-price">
+                      {{ postProduct.price | currency: 'Rp': true:'1.0-0' }}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </ion-col>
+          </ion-col>
+        </ng-container>
       </ion-row>
     </ion-grid>
   </ion-list>

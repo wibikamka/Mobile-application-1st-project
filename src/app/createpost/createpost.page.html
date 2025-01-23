@@ -1,13 +1,153 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>createpost</ion-title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Italiana&display=swap"
+    rel="stylesheet"
+  />
+  <ion-toolbar class="custom-header">
+    <ion-title class="header-title">LOCALLY</ion-title>
+    <ion-buttons slot="start">
+      <ion-icon class="header-icon" name="cart-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-icon class="header-icon" name="notifications-outline"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">createpost</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <div class="create-post-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Share Your Story</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div
+          class="image-upload-container"
+          [class.drag-over]="isDraggingOver"
+          (dragover)="onDragOver($event)"
+          (dragleave)="onDragLeave($event)"
+          (drop)="onDropFile($event)"
+        >
+          <input
+            #fileInput
+            type="file"
+            (change)="onFileSelected($event)"
+            accept="image/jpeg,image/png,image/jpg"
+            class="file-input"
+          />
+
+          <ng-container *ngIf="!imagePreview">
+            <div class="upload-placeholder">
+              <ion-icon
+                name="cloud-upload-outline"
+                class="upload-icon"
+              ></ion-icon>
+              <p>Drag and drop or click to upload</p>
+              <ion-button
+                expand="block"
+                fill="outline"
+                color="medium"
+                (click)="presentImageSourceActionSheet()"
+              >
+                Select Image
+              </ion-button>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="imagePreview">
+            <div class="image-preview">
+              <img [src]="imagePreview" alt="Preview" />
+              <div class="image-overlay">
+                <ion-button
+                  fill="clear"
+                  color="light"
+                  class="remove-image-btn"
+                  (click)="removeImage()"
+                >
+                  <ion-icon name="trash-outline"></ion-icon>
+                </ion-button>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+
+        <ion-item>
+          <ion-label position="floating">Caption</ion-label>
+          <ion-input
+            [(ngModel)]="caption"
+            type="text"
+            placeholder="Write a caption..."
+          ></ion-input>
+        </ion-item>
+
+        <div class="products-section">
+          <ion-list>
+            <div
+              *ngFor="let productId of productIds; let i = index"
+              class="product-input-row"
+            >
+              <ion-item>
+                <ion-label position="floating">Product ID</ion-label>
+                <ion-input
+                  [(ngModel)]="productIds[i]"
+                  type="number"
+                  placeholder="Enter Product ID"
+                ></ion-input>
+              </ion-item>
+              <ion-button
+                *ngIf="i === productIds.length - 1"
+                (click)="addProductField()"
+                fill="clear"
+                color="primary"
+              >
+                <ion-icon name="add-circle-outline"></ion-icon>
+              </ion-button>
+              <ion-button
+                *ngIf="productIds.length > 1"
+                (click)="removeProductField(i)"
+                fill="clear"
+                color="danger"
+              >
+                <ion-icon name="remove-circle-outline"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-list>
+        </div>
+
+        <ion-button expand="block" color="primary" (click)="createPost()">
+          Post
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div class="footer">
+    <ion-icon
+      class="footer-icon"
+      name="home-outline"
+      routerLink="/home"
+    ></ion-icon>
+    <ion-icon
+      class="footer-icon"
+      name="search-outline"
+      routerLink="/product"
+    ></ion-icon>
+    <ion-icon
+      class="footer-icon"
+      name="add-circle-outline"
+      routerLink="/createpost"
+    ></ion-icon>
+    <ion-icon
+      class="footer-icon"
+      name="heart-outline"
+      routerLink="/bag"
+    ></ion-icon>
+    <ion-icon
+      class="footer-icon"
+      name="person-outline"
+      routerLink="/profile"
+    ></ion-icon>
+  </div>
 </ion-content>

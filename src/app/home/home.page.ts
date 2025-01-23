@@ -76,9 +76,9 @@ export class HomePage implements OnInit {
   }
 
   isSpecialRow(index: number): boolean {
-    if (index === 0 || (index + 1) % 4 === 0) {
+    if ((index + 1) % 7 === 0) {
       // this.loadPostWithProduct();
     }
-    return index === 0 || (index + 1) % 4 === 0;
+    return (index + 1) % 7 === 0;
   }
 }

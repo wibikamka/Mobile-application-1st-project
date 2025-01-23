@@ -12,12 +12,12 @@ export class RegisterPage implements OnInit {
   data: any = {
     username: '',
     email: '',
-    gender:'',
+    gender: '',
     password: '',
-    password_confirmation: ''
+    password_confirmation: '',
   };
 
-  constructor(public api: ApiService, private router: Router) { }
+  constructor(public api: ApiService, private router: Router) {}
 
   ngOnInit() {}
 
@@ -25,23 +25,23 @@ export class RegisterPage implements OnInit {
   submitregister() {
     // Validasi di client-side (sebelum mengirim ke server)
     if (this.data.password !== this.data.password_confirmation) {
-      console.error("Passwords do not match!");
+      console.error('Passwords do not match!');
       return;
     }
 
     if (!this.data.email.endsWith('@gmail.com')) {
-      console.error("Email must be a Gmail address (ending with @gmail.com)!");
+      console.error('Email must be a Gmail address (ending with @gmail.com)!');
       return;
     }
 
     // Mengirim data ke API Laravel
     this.api.post('register', this.data).subscribe(
       (resp) => {
-        console.log("register success", resp);
-        this.router.navigate(['/login']); 
+        console.log('register success', resp);
+        this.router.navigate(['/login']);
       },
       (error) => {
-        console.error("register error", error);
+        console.error('register error', error);
       }
     );
   }

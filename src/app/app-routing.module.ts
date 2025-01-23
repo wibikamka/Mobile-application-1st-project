@@ -80,10 +80,6 @@ const routes: Routes = [
     path: 'createpost',
     loadChildren: () => import('./createpost/createpost.module').then( m => m.CreatepostPageModule)
   },
-  {
-    path: 'createpost',
-    loadChildren: () => import('./createpost/createpost.module').then( m => m.CreatepostPageModule)
-  },
 
 ];
 
