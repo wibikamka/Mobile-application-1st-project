@@ -29,7 +29,8 @@ export class ProductPage implements OnInit {
       (response: any) => {
         const data = response.data; // Menyesuaikan dengan format response
         if (data.length === 0) {
-          this.lastPage = true; // Set ke true jika tidak ada produk lagi
+          // this.lastPage = true; // Set ke true jika tidak ada produk lagi
+          this.page = 1;
         } else {
           this.posts = [...this.posts, ...data]; // Menambahkan produk baru ke array
           this.page++; // Menambah halaman setelah data berhasil dimuat
