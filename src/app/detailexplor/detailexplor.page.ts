@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ExploreService } from '../explore.service';
 
@@ -12,6 +12,8 @@ export class DetailexplorPage implements OnInit {
   post: any; // Menyimpan data post
   loading: boolean = true; // Status loading
 
+  @ViewChild('relatedProductsSection') relatedProductsSection!: ElementRef;
+
   constructor(
     private route: ActivatedRoute,
     private exploreService: ExploreService
@@ -21,22 +23,27 @@ export class DetailexplorPage implements OnInit {
     // Ambil ID dari URL dan load detail post
     this.route.paramMap.subscribe((params) => {
       this.postId = params.get('id');
-      console.log('Post ID:', this.postId);  // Log ID untuk debugging
       if (this.postId) {
         this.loadPostDetails(this.postId);
       } else {
         console.error('Post ID not found');
       }
     });
-  }  
+  }
 
   loadPostDetails(postId: string) {
     this.exploreService.getPostById(postId).subscribe(
       (response) => {
-        console.log('Response:', response); // Log untuk memeriksa data yang diterima
         if (response?.data) {
           this.post = response.data; // Simpan data post
           this.loading = false;
+
+          // Scroll ke Related Products jika tersedia
+          if (this.post.products?.length > 0) {
+            setTimeout(() => {
+              this.scrollToRelatedProducts();
+            }, 100);
+          }
         } else {
           console.error('No data in response');
           this.loading = false;
@@ -47,5 +54,14 @@ export class DetailexplorPage implements OnInit {
         this.loading = false;
       }
     );
-  }  
+  }
+
+  scrollToRelatedProducts() {
+    if (this.relatedProductsSection) {
+      this.relatedProductsSection.nativeElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  }
 }

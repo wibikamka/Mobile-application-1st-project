@@ -59,7 +59,11 @@
   </div>
 
   <!-- Related Products Section -->
-  <div *ngIf="post?.products?.length > 0" class="products-section">
+  <div
+    *ngIf="post?.products?.length > 0"
+    class="products-section"
+    #relatedProductsSection
+  >
     <div class="section-header">
       <h3>Related Products</h3>
       <ion-button fill="clear" size="small">See All</ion-button>
