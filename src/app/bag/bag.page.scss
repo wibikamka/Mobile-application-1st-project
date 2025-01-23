@@ -26,6 +26,25 @@ ion-toolbar {
   margin-top: 15px;
 }
 
+/* Footer */
+.footer {
+  z-index: 10;
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  padding: 10px 0;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+}
+
+.footer-icon {
+  font-size: 35px;
+  color: #c52b30;
+}
+
 /* Cart Item Styles */
 .cart-item {
   border-bottom: 1px solid #ddd;
@@ -100,23 +119,4 @@ ion-toolbar {
 .action-buttons ion-button {
   border-radius: 50px;
   margin-bottom: 8px;
-}
-
-/* Footer */
-.footer {
-  z-index: 10;
-  display: flex;
-  justify-content: space-around;
-  background: white;
-  padding: 10px 0;
-  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 80px;
-}
-
-.footer-icon {
-  font-size: 35px;
-  color: #c52b30;
 }

@@ -150,26 +150,41 @@ ion-col {
 .post-product-item {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-  border-radius: 5%;
+
+  // margin-bottom: 10px;
+  border-radius: 5px;
   overflow: hidden;
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .post-product-image {
-  width: 80px;
-  height: 80px;
-  margin-right: 10px;
+  // width: 80px;
+  // height: 80px;
+
+  position: relative; /* Penting untuk anak img */
+  width: 25%; /* Sesuaikan dengan container */
+  padding-top: 25%; /* Tinggi 100% dari lebar untuk membuat kotak */
 }
 
 .post-product-image img {
+  // width: 100%;
+  // height: 100%;
+  // border-radius: 5px;
+  // object-fit: cover;
+
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover; /* Pastikan gambar memenuhi kotak */
   border-radius: 5px;
-  object-fit: cover;
 }
 
 .post-product-details {
   flex-grow: 1;
+  width: 75%;
+  padding: 0 16px;
 }
 
 .post-product-name {
@@ -180,6 +195,7 @@ ion-col {
 
 .post-product-price {
   font-size: 12px;
-  color: white;
+  font-weight: 600;
+  color: #c52b30;
   margin: 0;
 }

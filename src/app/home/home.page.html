@@ -38,16 +38,24 @@
 
           <!-- Special Column -->
           <ion-col size="12" *ngIf="isSpecialRow(i)">
-            <div class="special-column">
+            <div class="special-column" *ngIf="posts.length > 0">
               <!-- Gambar Post -->
-              <div class="post-image" [routerLink]="['/detailexplor', post.id]">
-                <img [src]="post.image_url" alt="Special Post" />
+              <div
+                class="post-image"
+                [routerLink]="['/detailexplor', posts[((i + 1) / 7)-1]?.id]"
+              >
+                <img
+                  [src]="posts[((i + 1) / 7)-1]?.image_url"
+                  alt="Special Post"
+                />
               </div>
 
               <!-- Produk dari Post -->
-              <div class="post-products">
+              <div
+                class="post-products"
+                *ngFor="let postProduct of productsFromPosts[((i + 1) / 7)-1]"
+              >
                 <div
-                  *ngFor="let postProduct of productsFromPost"
                   class="post-product-item"
                   [routerLink]="['/detail', postProduct.id]"
                 >

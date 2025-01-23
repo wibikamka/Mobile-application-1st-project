@@ -8,8 +8,9 @@ import { ApiService } from '../api.service';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  productsFromPost: any[] = []; // Semua produk dari JSON
-  post: any = null; // Post khusus untuk baris 1 atau kelipatan 4
+  posts: any[] = [];
+  productsFromPosts: any[][] = [];
+
   products: any[] = []; // Menyimpan produk
   page = 1; // Menyimpan halaman yang sedang aktif
   loading = false; // Indikator loading
@@ -21,7 +22,7 @@ export class HomePage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.loadPostWithProduct();
+    // this.loadPostWithProduct();
     this.loadProducts(); // Load produk ketika halaman di-initialize
   }
 
@@ -57,6 +58,8 @@ export class HomePage implements OnInit {
         }
       }
     );
+
+    this.loadPostWithProduct();
   }
 
   loadMore(event: any) {
@@ -67,8 +70,8 @@ export class HomePage implements OnInit {
   loadPostWithProduct() {
     this.apiService.get(`postwithproduct`).subscribe(
       (response: any) => {
-        this.post = response.post;
-        this.productsFromPost = response.products;
+        this.posts.push(response.data.post);
+        this.productsFromPosts.push(response.data.products);
       },
       (error) => {
         console.error('Error fetching data:', error);
@@ -77,9 +80,6 @@ export class HomePage implements OnInit {
   }
 
   isSpecialRow(index: number): boolean {
-    if ((index + 1) % 7 === 0) {
-      // this.loadPostWithProduct();
-    }
     return (index + 1) % 7 === 0;
   }
 }

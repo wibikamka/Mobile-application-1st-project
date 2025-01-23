@@ -99,7 +99,7 @@
 /* Post Image Section */
 .post-image-container {
   position: relative;
-  margin: 116px 0 16px;
+  margin: 116px 0 0;
   background: white;
 }
 
@@ -132,7 +132,7 @@
 
 /* Post Details */
 .post-details {
-  padding: 0 16px 16px;
+  padding: 16px 16px;
   background: white;
   // margin-bottom: 16px;
 }
@@ -162,7 +162,7 @@
   margin: 8px;
   padding: 8px;
   background: linear-gradient(135deg, #c52b30, #ff6b6b);
-  border-radius: 5%;
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -189,7 +189,7 @@
   display: flex;
   align-items: center;
   background: rgba(255, 255, 255, 0.8);
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 0 12px 0 0;
@@ -199,7 +199,7 @@
   width: 100px;
   height: 100px;
   object-fit: cover;
-  border-radius: 8px;
+  // border-radius: 8px;
   margin-right: 16px;
 }
 
