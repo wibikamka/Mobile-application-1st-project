@@ -44,79 +44,113 @@ ion-toolbar {
   font-size: 35px;
   color: #c52b30;
 }
-
 /* Cart Item Styles */
 .cart-item {
-  border-bottom: 1px solid #ddd;
-  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 20px;
+  background-color: #fafafa; /* Background lebih terang */
+  border-radius: 8px; /* Sudut melengkung */
+  margin: 10px;
 }
 
 .item-info h3 {
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
   margin: 0;
 }
 
 .item-info p {
-  font-size: 14px;
-  color: #555;
-  margin: 4px 0;
+  font-size: 15px;
+  color: #888;
+  margin: 5px 0;
 }
 
 .price {
-  color: #c62e32;
+  color: #d32f2f; /* Warna merah tua */
   font-weight: bold;
+  font-size: 18px;
 }
-
 .item-actions {
   display: flex;
-  gap: 8px;
-  margin: 8px 0;
+  justify-content: space-between; /* Checkbox di kiri, ikon sampah di kanan */
+  align-items: center; /* Pastikan semua elemen sejajar secara vertikal */
+  padding: 0 10px; /* Spasi horizontal untuk tampilan lebih rapi */
+}
+
+.item-actions ion-checkbox {
+  transform: scale(2.7); /* Membuat checkbox lebih besar */
+  margin-right: auto; /* Checkbox di kiri */
+}
+
+.item-actions ion-button {
+  margin-left: auto; /* Sampah di kanan */
+  padding: 0; /* Hilangkan padding ekstra */
+}
+
+.item-actions ion-icon {
+  font-size: 24px; /* Sesuaikan ukuran ikon sampah */
 }
 
 .item-quantity {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .item-quantity ion-icon {
-  font-size: 20px;
-  color: #c62e32;
+  font-size: 24px;
+  color: #d32f2f;
 }
 
 .chat-button {
-  margin-top: 8px;
+  margin-top: 12px;
   font-size: 14px;
-  --color: #555;
+  color: #555;
+  font-weight: 500;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease;
+}
+
+.chat-button:hover {
+  background-color: #f0f0f0;
 }
 
 /* Summary Styles */
 .summary {
-  margin: 16px;
-  border-top: 1px solid #ddd;
+  margin: 20px;
+  border-top: 2px solid #e0e0e0;
   padding-top: 16px;
-  font-size: 14px;
+  font-size: 15px;
+  background-color: #f9f9f9; /* Background untuk summary */
+  border-radius: 8px;
+  padding: 15px;
 }
 
 .summary p {
   display: flex;
   justify-content: space-between;
-  margin: 8px 0;
+  margin: 12px 0;
 }
 
 .summary p:last-child {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
-  color: #c62e32;
+  color: #d32f2f;
 }
 
 /* Action Buttons */
 .action-buttons {
-  margin: 16px;
+  margin: 20px;
   margin-bottom: 6rem;
 }
 
 .action-buttons ion-button {
-  border-radius: 50px;
-  margin-bottom: 8px;
+  border-radius: 30px;
+  margin-bottom: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 12px;
 }

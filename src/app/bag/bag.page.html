@@ -21,35 +21,37 @@
   <div *ngFor="let item of cart; let i = index" class="cart-item">
     <div class="item-info">
       <h3>{{ item.name }}</h3>
-      <p>Brand: {{ item.brand }}</p>
+      <!-- <p>Brand: {{ item.brand }}</p> -->
       <p class="price">Rp. {{ item.price | number }}</p>
     </div>
     <div class="item-actions">
       <ion-checkbox
+        mode="md"
         [(ngModel)]="item.selected"
         color="primary"
         (ionChange)="onSelectionChange()"
       ></ion-checkbox>
-      <ion-button size="small" color="danger" (click)="removeFromCart(i)"
-        >Hapus</ion-button
-      >
+      <ion-button (click)="removeFromCart(i)" color="danger">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
     </div>
-    <div class="item-quantity">
+
+    <!-- <div class="item-quantity">
       <ion-icon name="remove-circle-outline"></ion-icon>
       <span>{{ item.quantity }}</span>
       <ion-icon name="add-circle-outline"></ion-icon>
-    </div>
-    <ion-button size="small" fill="clear" class="chat-button">
+    </div> -->
+    <!-- <ion-button size="small" fill="clear" class="chat-button">
       Chat <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-    </ion-button>
+    </ion-button> -->
   </div>
 
   <!-- Total Summary -->
   <div class="summary">
     <p>Ongkos kirim dan asuransi</p>
-    <p>IDR 30,000</p>
+    <p>Rp 30,000</p>
     <p>SUBTOTAL</p>
-    <p>IDR {{ subtotal | number }}</p>
+    <p>Rp{{ subtotal | number }}</p>
   </div>
 
   <!-- Action Buttons -->

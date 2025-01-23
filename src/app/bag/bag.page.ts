@@ -24,9 +24,16 @@ export class BagPage implements OnInit {
 
   // Menghitung subtotal berdasarkan produk yang dipilih
   calculateSubtotal() {
-    this.subtotal = this.cart
-      .filter(item => item.selected) // Hanya yang dipilih yang dihitung
-      .reduce((acc, item) => acc + item.price, 0);
+    // Periksa apakah ada item yang dipilih
+    const selectedItems = this.cart.filter((item) => item.selected);
+
+    // Hitung subtotal
+    this.subtotal = selectedItems.reduce((acc, item) => acc + item.price, 0);
+
+    // Tambahkan 30000 jika ada item yang dipilih
+    if (selectedItems.length > 0) {
+      this.subtotal += 30000;
+    }
   }
 
   // Mengupdate status produk yang dipilih
@@ -36,7 +43,7 @@ export class BagPage implements OnInit {
 
   // Proses pembayaran produk yang dipilih
   proceedToPayment() {
-    const selectedItems = this.cart.filter(item => item.selected);
+    const selectedItems = this.cart.filter((item) => item.selected);
     if (selectedItems.length === 0) {
       alert('Pilih setidaknya satu produk untuk melanjutkan ke pembayaran.');
       return;
