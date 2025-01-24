@@ -37,11 +37,11 @@ Locally is a mobile application built with Ionic Framework and Angular, designed
 ### Steps
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-repo/locally-fe.git
+   git clone https://github.com/wibikamka/Mobile-application-1st-project
    ```
 2. Navigate to the project directory:
    ```bash
-   cd locally-fe
+   cd Mobile-application-1st-project
    ```
 3. Install dependencies:
    ```bash
