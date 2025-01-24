@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { authGuard } from './auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
@@ -30,6 +31,7 @@ const routes: Routes = [
   {
     path: 'bag',
     loadChildren: () => import('./bag/bag.module').then((m) => m.BagPageModule),
+    canActivate: [authGuard],
   },
   {
     path: 'detail/:id', // Menambahkan :id sebagai parameter dinamis
@@ -40,6 +42,7 @@ const routes: Routes = [
     path: 'checkout',
     loadChildren: () =>
       import('./checkout/checkout.module').then((m) => m.CheckoutPageModule),
+    canActivate: [authGuard],
   },
   {
     path: 'pesanan-saya',
@@ -47,6 +50,7 @@ const routes: Routes = [
       import('./pesanan-saya/pesanan-saya.module').then(
         (m) => m.PesananSayaPageModule
       ),
+    canActivate: [authGuard],
   },
   {
     path: 'explorer',
@@ -57,13 +61,14 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () =>
       import('./profile/profile.module').then((m) => m.ProfilePageModule),
+    canActivate: [authGuard],
   },
   {
     path: 'detailexplor/:id',
     loadChildren: () =>
       import('./detailexplor/detailexplor.module').then(
         (m) => m.DetailexplorPageModule
-      ), // Perbaiki di sini
+      ),
   },
   {
     path: 'developer',
@@ -76,11 +81,15 @@ const routes: Routes = [
       import('./profile-id/profile-id.module').then(
         (m) => m.ProfileIdPageModule
       ),
-  },  {
-    path: 'createpost',
-    loadChildren: () => import('./createpost/createpost.module').then( m => m.CreatepostPageModule)
   },
-
+  {
+    path: 'createpost',
+    loadChildren: () =>
+      import('./createpost/createpost.module').then(
+        (m) => m.CreatepostPageModule
+      ),
+    canActivate: [authGuard],
+  },
 ];
 
 @NgModule({

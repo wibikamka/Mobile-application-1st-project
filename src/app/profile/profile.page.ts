@@ -27,4 +27,9 @@ export class ProfilePage implements OnInit {
       }
     );
   }
+
+  logout() {
+    localStorage.removeItem('userToken');
+    window.location.href = '/login';
+  }
 }

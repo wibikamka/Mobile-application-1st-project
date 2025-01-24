@@ -14,21 +14,19 @@ input {
   box-sizing: border-box; /* Memastikan padding tidak mempengaruhi lebar */
 }
 
-/* Jarak antar kolom lebih kecil */
-.mb-3 {
-  margin-bottom: 5px; /* Jarak antar kolom sangat kecil */
+.item-form {
+  margin: 10px 20px;
 }
 
 /* Tombol submit styling */
 .submit-button {
-  background-color: #C62E32; /* Warna latar belakang tombol */
+  background-color: #c62e32; /* Warna latar belakang tombol */
   color: whitesmoke; /* Warna teks tombol */
   font-weight: normal; /* Ketebalan font tombol */
   padding: 10px; /* Padding tombol */
   border-radius: 10px; /* Rounded corners tombol */
   width: 100%; /* Lebar penuh tombol */
   cursor: pointer; /* Pointer saat hover */
-  margin-top: 10px; /* Jarak tombol dari elemen sebelumnya */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efek bayangan */
 }
 
@@ -90,8 +88,8 @@ input {
 }
 
 /* Tombol registrasi */
-.submit-button {
-  width: 100%;
+button.submit-button {
+  width: 90%;
   background-color: #d32f2f;
   color: #fff;
   padding: 15px;
@@ -102,6 +100,7 @@ input {
   cursor: pointer;
   text-align: center;
   border: none;
+  margin: 10px 20px;
 }
 
 .submit-button:disabled {

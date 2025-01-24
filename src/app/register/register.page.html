@@ -2,9 +2,12 @@
   <!-- <ion-toolbar>
     <ion-title>Register</ion-title>
   </ion-toolbar> -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Italiana&display=swap"
+    rel="stylesheet"
+  />
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -18,41 +21,45 @@
     <h1 class="logo-text">LOCALLY</h1>
   </div>
 
-  <form class="max-w-sm mx-auto" #registerForm="ngForm" (ngSubmit)="submitregister()">
-    <div class="mb-3">
+  <form
+    class="max-w-sm mx-auto"
+    #registerForm="ngForm"
+    (ngSubmit)="submitregister()"
+  >
+    <div class="item-form">
       <input
         type="text"
         id="username"
         class="input-field"
-        placeholder="Enter your name"
+        placeholder="Username"
         name="username"
         [(ngModel)]="data.username"
         required
       />
     </div>
-    <div class="mb-3">
+    <div class="item-form">
       <input
         type="text"
         id="phone"
         class="input-field"
-        placeholder="Nomor telepon"
+        placeholder="Phone Number"
         name="phone"
         [(ngModel)]="data.phone"
         required
       />
     </div>
-    <div class="mb-3">
+    <div class="item-form">
       <input
         type="email"
         id="email"
         class="input-field"
-        placeholder="name@example.com"
+        placeholder="Email"
         name="email"
         [(ngModel)]="data.email"
         required
       />
     </div>
-    <div class="mb-3">
+    <div class="item-form">
       <input
         type="password"
         id="password"
@@ -63,18 +70,7 @@
         required
       />
     </div>
-    <div class="mb-3">
-      <input
-        type="gender"
-        id="gender"
-        class="input-field"
-        placeholder="Gender"
-        name="gender"
-        [(ngModel)]="data.gender"
-        required
-      />
-    </div>
-    <div class="mb-3">
+    <div class="item-form">
       <input
         type="password"
         id="password_confirmation"
@@ -85,9 +81,32 @@
         required
       />
     </div>
-    <button type="submit" class="submit-button" [disabled]="!registerForm.valid">Register</button>
+    <div class="item-form">
+      <select
+        id="gender"
+        class="input-field"
+        name="gender"
+        [(ngModel)]="data.gender"
+        required
+      >
+        <option value="" disabled selected>Select your gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+
+    <button
+      type="submit"
+      class="submit-button"
+      [disabled]="!registerForm.valid"
+    >
+      Register
+    </button>
   </form>
   <div class="login-link">
-    <p>Sudah memiliki akun? <span (click)="goToLogin()" class="login-text">Login</span></p>
+    <p>
+      Sudah memiliki akun?
+      <span (click)="goToLogin()" class="login-text">Login</span>
+    </p>
   </div>
 </ion-content>

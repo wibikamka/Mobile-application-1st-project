@@ -55,11 +55,11 @@ ion-content {
 
 .form-input::placeholder {
   font-weight: normal; /* Menghilangkan bold pada placeholder */
-  color: #B2B2B2; /* Opsional, menyesuaikan warna placeholder jika diperlukan */
+  color: #b2b2b2; /* Opsional, menyesuaikan warna placeholder jika diperlukan */
 }
 
 .login-button {
-  background-color: #C62E32; /* Warna merah */
+  background-color: #c62e32; /* Warna merah */
   color: whitesmoke;
   font-size: 22px;
   font-weight: 510;
@@ -71,15 +71,15 @@ ion-content {
 }
 
 .login-button:hover {
-  background-color: #FF6B6B; /* Merah muda terang saat hover */
+  background-color: #ff6b6b; /* Merah muda terang saat hover */
 }
 
 .register-button {
   background-color: transparent;
-  color: #C62E32; /* Warna merah untuk teks */
+  color: #c62e32; /* Warna merah untuk teks */
   font-size: 18px;
   font-weight: 500;
-  border: 2px solid #C62E32; /* Garis merah */
+  border: 2px solid #c62e32; /* Garis merah */
   border-radius: 4px;
   margin-top: 10px;
   padding: 15px;
@@ -88,6 +88,22 @@ ion-content {
 }
 
 .register-button:hover {
-  background-color: #C62E32; /* Merah saat hover */
+  background-color: #c62e32; /* Merah saat hover */
   color: white; /* Teks putih saat hover */
+}
+
+.login-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.login-link p {
+  font-size: 14px;
+  color: #666;
+}
+
+.login-text {
+  color: #d32f2f;
+  font-weight: bold;
+  cursor: pointer;
 }
