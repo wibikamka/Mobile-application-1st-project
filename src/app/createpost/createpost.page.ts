@@ -175,4 +175,7 @@ export class CreatepostPage implements OnInit {
       },
     });
   }
+  trackByIndex(index: number, item: any): number {
+    return index;
+  }
 }

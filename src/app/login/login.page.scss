@@ -4,14 +4,15 @@ ion-header {
 
 ion-content {
   --background: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .container {
-  max-width: 384px;
+  height: 100vh;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .logo-text {
@@ -20,8 +21,7 @@ ion-content {
   font-size: 50px;
   font-weight: 400;
   color: black;
-  margin-top: 200px;
-  margin-bottom: 200px;
+  margin-bottom: 10vh;
 }
 
 .login-form {

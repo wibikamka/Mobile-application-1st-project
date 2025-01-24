@@ -20,7 +20,7 @@
   <div class="create-post-container">
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Share Your Story</ion-card-title>
+        <ion-card-title>Share Outfit Ideas</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>
@@ -79,14 +79,14 @@
           <ion-input
             [(ngModel)]="caption"
             type="text"
-            placeholder="Write a caption..."
+            placeholder="   Write a caption..."
           ></ion-input>
         </ion-item>
 
         <div class="products-section">
           <ion-list>
             <div
-              *ngFor="let productId of productIds; let i = index"
+              *ngFor="let productId of productIds; let i = index; trackBy: trackByIndex"
               class="product-input-row"
             >
               <ion-item>
@@ -94,7 +94,7 @@
                 <ion-input
                   [(ngModel)]="productIds[i]"
                   type="number"
-                  placeholder="Enter Product ID"
+                  placeholder="   Enter Product ID"
                 ></ion-input>
               </ion-item>
               <ion-button
@@ -117,7 +117,13 @@
           </ion-list>
         </div>
 
-        <ion-button expand="block" color="primary" (click)="createPost()">
+        <br />
+        <ion-button
+          class="submitbutton"
+          expand="block"
+          color="primary"
+          (click)="createPost()"
+        >
           Post
         </ion-button>
       </ion-card-content>
